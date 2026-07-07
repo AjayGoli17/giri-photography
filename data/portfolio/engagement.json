@@ -1,7 +1,13 @@
 {
   "name": "Engagement",
   "images": [
-    "engagement/ring1.webp","engagement/ring2.webp","engagement/ring3.webp","engagement/ring4.webp",
-    "engagement/ring5.webp","engagement/ring6.webp","engagement/ring7.webp","engagement/ring8.webp"
+    "/engagement/ring1.webp",
+    "/engagement/ring2.webp",
+    "/engagement/ring3.webp",
+    "/engagement/ring4.webp",
+    "/engagement/ring5.webp",
+    "/engagement/ring6.webp",
+    "/engagement/ring7.webp",
+    "/engagement/ring8.webp"
   ]
 }
