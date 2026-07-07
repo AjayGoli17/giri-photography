@@ -1,7 +1,13 @@
 {
   "name": "Haldi",
   "images": [
-    "haldi/haldi1.webp","haldi/haldi2.webp","haldi/haldi3.webp","haldi/haldi4.webp",
-    "haldi/haldi5.webp","haldi/haldi6.webp","haldi/haldi7.webp","haldi/haldi8.webp"
+    "/haldi/haldi1.webp",
+    "/haldi/haldi2.webp",
+    "/haldi/haldi3.webp",
+    "/haldi/haldi4.webp",
+    "/haldi/haldi5.webp",
+    "/haldi/haldi6.webp",
+    "/haldi/haldi7.webp",
+    "/haldi/haldi8.webp"
   ]
 }
