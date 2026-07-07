@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-# Where the CMS commits uploaded images to in your repo
+# Default fallback (used only if a field doesn't override it below)
 media_folder: "service"
 public_folder: "/service"
 
@@ -12,6 +12,9 @@ collections:
   # PHOTO CATEGORIES — one file per category, each holding an ordered
   # list of images. portfolio.js fetches these at runtime to build
   # both the category cover thumbnail and the 10-photo gallery grid.
+  # Each field below has its own media_folder/public_folder pointing
+  # at that category's own image folder, so Add/Replace/Delete in the
+  # CMS reads and writes the correct place.
   # ------------------------------------------------------------------
   - name: "portfolio"
     label: "Photo Categories"
@@ -24,7 +27,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/wedding", public_folder: "/wedding" }
 
       - name: "pre-wedding"
         label: "Pre-Wedding"
@@ -34,7 +37,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/prewedding", public_folder: "/prewedding" }
 
       - name: "engagement"
         label: "Engagement"
@@ -44,7 +47,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/engagement", public_folder: "/engagement" }
 
       - name: "haldi"
         label: "Haldi"
@@ -54,7 +57,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/haldi", public_folder: "/haldi" }
 
       - name: "birthdays"
         label: "Birthdays"
@@ -64,7 +67,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/birthdays", public_folder: "/birthdays" }
 
       - name: "dhoti-ceremony"
         label: "Dhoti Ceremony"
@@ -74,7 +77,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/dhothi", public_folder: "/dhothi" }
 
       - name: "saree-ceremony"
         label: "Saree Ceremony"
@@ -84,7 +87,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/halfsaree", public_folder: "/halfsaree" }
 
       - name: "newborn"
         label: "Newborn"
@@ -94,7 +97,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/newborn", public_folder: "/newborn" }
 
       - name: "maternity"
         label: "Maternity"
@@ -104,7 +107,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/maternity", public_folder: "/maternity" }
 
       - name: "solo-portraits"
         label: "Solo Portraits"
@@ -114,7 +117,7 @@ collections:
           - label: "Photos"
             name: "images"
             widget: "list"
-            field: { label: "Photo", name: "src", widget: "image" }
+            field: { label: "Photo", name: "src", widget: "image", media_folder: "/single", public_folder: "/single" }
 
   # ------------------------------------------------------------------
   # SERVICE PRICING — a single file holding every service's price.
