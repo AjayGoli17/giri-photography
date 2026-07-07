@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giri Photography</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/contact.css">
+
+</head>
+<body>
+
+
+
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Giri Photography home">
+        <span class="logo-mark">
+          <img src="logo.png" alt="Giri Photography logo">
+        </span>
+       
+      </a>
+  
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Team</a></li>
+         <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html" class="nav-active">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <a href="contact.html" class="btn">Book a Shoot</a>
+  
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <ul class="mobile-nav" id="navLinks">
+    <li><a href="index.html" class="nav-active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+       <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="btn">Book a Shoot</a></li>
+  </ul>
+
+<section class="hero">
+  <div class="eyebrow reveal-up" style="--d:0s">RESERVATION &amp; INQUIRIES</div>
+  <h1 class="reveal-up" style="--d:0.12s">Capture Your Legacy in<span class="gold-line">Golden Light<i class="gold-underline"></i></span></h1>
+  <p class="reveal-up" style="--d:0.28s">Bespoke luxury photography for those who value the art of the moment. We invite you to fill out the form below to begin your creative journey with us.</p>
+</section>
+
+<div class="card-wrap" id="book">
+  <div class="card scroll-reveal">
+    <div class="card-left">
+      <h3>Giri Photography</h3>
+      <p>Experience a private consultation in our flagship Ivory &amp; Gold studio gallery.</p>
+
+      <div class="info-row">
+        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div>1200 Avenue of Arts, Studio 4B</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+        <div>+1 (555) 800-GOLD</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div>curate@bookyourshoot.com</div>
+      </div>
+
+      <div class="hours-title">STUDIO HOURS</div>
+      <div class="hours-row"><span>Mon - Fri</span><span>09:00 - 18:00</span></div>
+      <div class="hours-row"><span>Saturday</span><span>10:00 - 16:00</span></div>
+      <div class="hours-row"><span>Sunday</span><span>By Appointment</span></div>
+
+      <div class="gallery-title">GALLERY PREVIEW</div>
+      <div class="gallery-imgs">
+        <div><img class="fade-img" src="birthdays/birthday5.webp" alt="studio interior"></div>
+        <div><img class="fade-img" src="prewedding/couple2.webp" alt="camera lens"></div>
+        <div><img class="fade-img" src="engagement/ring5.webp" alt="wedding photography"></div>
+        <div><img class="fade-img" src="newborn/born7.webp" alt="portrait session"></div>
+      </div>
+    </div>
+
+    <div class="card-right">
+      <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+        <div class="field">
+          <div class="input-wrap">
+            <input type="text" id="fullName" placeholder=" " autocomplete="off">
+            <label for="fullName">Full Name</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="input-wrap">
+            <input type="tel" id="phoneNumber" placeholder=" " autocomplete="off">
+            <label for="phoneNumber">Phone Number</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <div class="field select-wrap">
+          <div class="input-wrap">
+            <select id="serviceType">
+              <option value=""></option>
+              <option>Wedding</option>
+              <option>Engagement</option>
+              <option>Reception</option>
+              <option>Pre Wedding Shoot</option>
+              <option>Baby Shoot</option>
+              <option>House Warming</option>
+              <option>Naming Ceremony</option>
+              <option>Maternity Shoot</option>
+              <option>Baby Borne Shoot</option>
+              <option>Birthday Party</option>
+              <option>Sangeeth</option>
+              <option>Haldi</option>
+              <option>Saree Ceremony</option>
+              <option>Dhoti Ceremony</option>
+            </select>
+            <label for="serviceType" class="label-static">Service</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <div class="field event-date">
+          <div class="input-wrap">
+            <input type="text" id="eventDate" placeholder=" " onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+            <label for="eventDate" class="label-static">Event Date</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="input-wrap">
+            <input type="text" id="eventLocation" placeholder=" " autocomplete="off">
+            <label for="eventLocation">Location</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="input-wrap">
+            <textarea id="messageBox" placeholder=" "></textarea>
+            <label for="messageBox">Message</label>
+            <span class="input-underline"></span>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">BOOK YOUR SHOOT</span>
+        </button>
+      </form>
+      <p style="text-align:center;font-size:12px;color:#8a8a84;margin-top:14px;">
+        Submitting will open WhatsApp with your details pre-filled.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="location-section scroll-reveal">
+  <div class="eyebrow">LOCATION</div>
+  <h2>Visit Our Studio</h2>
+</section>
+
+<div class="location-content">
+  <div class="map-box scroll-reveal-left">
+    <iframe
+      src="https://maps.google.com/maps?q=Kompally%2C%20Hyderabad%2C%20Telangana&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      width="100%"
+      height="100%"
+      style="border:0;" 
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Giri Photography location - Kompally, Hyderabad">
+    </iframe>
+  </div>
+  <div class="find-us scroll-reveal-right">
+    <h3>Find Us</h3>
+    <p>Located in the heart of the city's artistic quarter, our studio is a sanctuary of light and luxury. We recommend booking an appointment for a private tour of our gallery.</p>
+
+    <div class="feature-row">
+      <div class="feature-icon"><i class="fa-solid fa-square-parking"></i></div>
+      <div class="feature-text">
+        <strong>PARKING</strong>
+        <span>Valet parking available at the main entrance.</span>
+      </div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon"><i class="fa-solid fa-train-subway"></i></div>
+      <div class="feature-text">
+        <strong>TRANSIT</strong>
+        <span>Two blocks from the Arts District Metro Station.</span>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/search/?api=1&query=Kompally,+Hyderabad" target="_blank" rel="noopener" class="directions-btn">Get Directions</a>
+  </div>
+</div>
+
+<a href="tel:+919848403872" class="call-float call-float-enter" aria-label="Call the studio">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2Z"/>
+  </svg>
+</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Giri Photography</h4>
+        <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+          <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+          <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+        </div>
+      </div>
+      <div class="foot-links">
+        <div class="head">Quick Links</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-links">
+        <div class="head">Explore</div>
+        <ul>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="head foot-links" style="margin-bottom:14px;">Visit Us</div>
+        <div class="visit-box">
+          <p><i class="fa-solid fa-location-dot"></i> kompally , hyderabad</p>
+          <p><i class="fa-solid fa-phone"></i> +91 98484 03872</p>
+          <p><i class="fa-solid fa-clock"></i> Mon&ndash;Sat, 10:00 AM &ndash; 8:30 PM</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kompally,+Hyderabad" target="_blank" rel="noopener" class="get-dir">GET DIRECTIONS <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Giri Photography. All rights reserved.</span>
+      <span><a href="#">Privacy policy</a><a href="#">Terms of service</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/contact.js"></script>
+
+
+<script src="js/main.js"></script>
+
+
+
+</body>
+</html>

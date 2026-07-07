@@ -1,0 +1,17 @@
+{
+  "services": [
+    { "id": "wedding-prewedding", "name": "Wedding & Pre Wedding", "price": 25000 },
+    { "id": "prewedding-shoot",   "name": "Pre Wedding Shoot",      "price": 15000 },
+    { "id": "haldi",              "name": "Haldi's",                "price": 8000 },
+    { "id": "sangeet",            "name": "Sangeet Ceremony",        "price": 5000 },
+    { "id": "engagement",         "name": "Engagement Ceremony",     "price": 6000 },
+    { "id": "maternity",          "name": "Maternity Shoot",         "price": 4000 },
+    { "id": "housewarming",       "name": "House Warming Ceremony",  "price": 1500 },
+    { "id": "dhoti",              "name": "Dhoti Ceremony",          "price": 2500 },
+    { "id": "birthday",           "name": "Birthday Parties",        "price": 6000 },
+    { "id": "saree",              "name": "Saree Ceremony",          "price": 10000 },
+    { "id": "newborn",            "name": "Newborn Baby Shoot",      "price": 5500 },
+    { "id": "baby",               "name": "Baby Shoot",              "price": 4500 },
+    { "id": "solo",               "name": "Solo Photography",        "price": 5000 }
+  ]
+}

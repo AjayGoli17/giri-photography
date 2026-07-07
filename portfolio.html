@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giri Photography — Portfolio</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/portfolio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Giri Photography home">
+        <span class="logo-mark">
+          <img src="logo.png" alt="Giri Photography logo">
+        </span>
+       
+      </a> 
+  
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Team</a></li>
+         <li><a href="portfolio.html" class="nav-active">Portfolio</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+  
+      <a href="contact.html" class="btn">Book a Shoot</a>
+  
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <ul class="mobile-nav" id="navLinks">
+    <li><a href="index.html" class="nav-active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+       <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="btn">Book a Shoot</a></li>
+  </ul>
+  
+
+<section class="gallery-head">
+  <div class="container">
+    <div class="eyebrow reveal" style="margin-bottom:14px;">Gallery 01</div>
+    <div class="gallery-head-top">
+      <h1 class="reveal reveal-delay-1">The Stills</h1>
+      <p class="reveal reveal-delay-2">A curated selection of weddings, portraits, and personal moments that reflect our passion for authentic and timeless storytelling.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="catGridSection">
+  <div class="category-grid">
+
+    <div class="category-row">
+      <button type="button" class="tile cat-card cat-large reveal" data-category="weddings">
+        <div class="ph"><img src="service/wedding.webp" alt="Weddings"></div>
+        <div class="cat-name">Weddings</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+      <button type="button" class="tile cat-card cat-small reveal" data-category="pre-wedding">
+        <div class="ph"><img src="service/prewedding.webp" alt="Pre-Wedding"></div>
+        <div class="cat-name">Pre-Wedding</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+    </div>
+
+    <div class="category-row reverse">
+      <button type="button" class="tile cat-card cat-small reveal" data-category="engagement">
+        <div class="ph"><img src="service/engagement.webp" alt="Engagement"></div>
+        <div class="cat-name">Engagement</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+      <button type="button" class="tile cat-card cat-large reveal" data-category="haldi">
+        <div class="ph"><img src="service/haldi.webp" alt="Haldi"></div>
+        <div class="cat-name">Haldi</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+    </div>
+
+    <div class="category-row">
+      <button type="button" class="tile cat-card cat-large reveal" data-category="birthdays">
+        <div class="ph"><img src="service/birthday.webp" alt="Birthdays"></div>
+        <div class="cat-name">Birthdays</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+      <button type="button" class="tile cat-card cat-small reveal" data-category="dhoti-ceremony">
+        <div class="ph"><img src="service/dhothi.webp" alt="Dhoti Ceremony"></div>
+        <div class="cat-name">Dhoti Ceremony</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+    </div>
+
+    <div class="category-row reverse">
+      <button type="button" class="tile cat-card cat-small reveal" data-category="saree-ceremony">
+        <div class="ph"><img src="service/saree.webp" alt="Saree Ceremony"></div>
+        <div class="cat-name">Saree Ceremony</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+      <button type="button" class="tile cat-card cat-large reveal" data-category="newborn">
+        <div class="ph"><img src="service/babyborn.webp" alt="Newborn"></div>
+        <div class="cat-name">Newborn</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+    </div>
+
+    <div class="category-row">
+      <button type="button" class="tile cat-card cat-large reveal" data-category="maternity">
+        <div class="ph"><img src="service/maternity.webp" alt="Maternity"></div>
+        <div class="cat-name">Maternity</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+      <button type="button" class="tile cat-card cat-small reveal" data-category="solo-portraits">
+        <div class="ph"><img src="service/solo.webp
+          " alt="Solo Portraits"></div>
+        <div class="cat-name">Solo Portraits</div>
+        <div class="cat-view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg> View Gallery</div>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<section class="cat-gallery" id="catGallery" aria-hidden="true">
+  <div class="container">
+    <button type="button" class="cat-gallery-back" id="catGalleryBack">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
+      Back to Categories
+    </button>
+    <div class="cat-gallery-head">
+      <h3 id="catGalleryTitle">Weddings</h3>
+    </div>
+    <div class="cat-gallery-grid" id="catGalleryGrid"></div>
+
+    <button type="button" class="cat-gallery-next" id="catGalleryNext">
+      <span>Next: <span id="catGalleryNextName">Pre-Wedding</span></span>
+      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z"/></svg>
+    </button>
+  </div>
+</section>
+
+<section class="cinematic">
+  <div class="container">
+    <div class="cinematic-head">
+      <div class="eyebrow reveal" style="margin-bottom:14px;">Collection 02</div>
+      <h2 class="reveal reveal-delay-1">Cinematic Stories</h2>
+    </div>
+
+    <div class="cine-grid">
+      <div class="cine-card reveal">
+        <div class="ph">
+          <img src="service/prewedding.webp" alt="Pre-Wedding poster">
+          <video muted loop playsinline preload="metadata" poster="service/prewedding.webp">
+            <source src="prewedding.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Anniversary Reel</div>
+          <h3>Pre-Wedding</h3>
+        </div>
+      </div>
+      <div class="cine-card reveal">
+        <div class="ph is-portrait">
+          <img src="house.jpg" alt="A Tuscan Prelude poster">
+          <video muted loop playsinline preload="metadata" poster="house.webp">
+            <source src="housewarming.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Cinematic Story</div>
+          <h3>House warming ceremony</h3>
+        </div>
+      </div>
+      <div class="cine-card reveal">
+        <div class="ph is-portrait">
+          <img src="service/birthday.webp" alt="Birthday celebration poster">
+          <video muted loop playsinline preload="metadata" poster="service/birthday.webp">
+            <source src="birthday.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Cinematic Story</div>
+          <h3>Birthday Celebration</h3>
+        </div>
+      </div>
+      <div class="cine-card reveal">
+        <div class="ph">
+          <img src="service/dhothi.webp" alt="Dhoti ceremony poster">
+          <video muted loop playsinline preload="metadata" poster="service/dhothi.webp">
+            <source src="dhothi.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Cinematic Story</div>
+          <h3>Dhoti Ceremony</h3>
+        </div>
+      </div>
+      <div class="cine-card reveal">
+        <div class="ph">
+          <img src="service/engagement.webp" alt="Engagement poster">
+          <video muted loop playsinline preload="metadata" poster="service/engagement.webp">
+            <source src="engagement.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Anniversary Reel</div>
+          <h3>Engagement</h3>
+        </div>
+      </div>
+      <div class="cine-card reveal">
+        <div class="ph is-portrait">
+          <img src="service/haldi.webp" alt="Haldi ceremony poster">
+          <video muted loop playsinline preload="metadata" poster="service/haldi.webp">
+            <source src="haldi.mp4" type="video/mp4">
+          </video>
+          <button class="video-btn" type="button" aria-label="Play video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+          </button>
+        </div>
+        <div class="cine-text">
+          <div class="cat">Editorial Motion</div>
+          <h3>Haldi Ceremony</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-heading reveal">
+      <span class="line">Explore Our Stories.</span>
+    </h2>
+    <p>Every frame tells a story. Discover our journey through weddings, portraits, and timeless moments.</p>
+    <div class="cta-buttons reveal">
+      <a href="contact.html" class="btn">Inquire Now</a>
+      <a href="service.html" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid reveal">
+      <div>
+        <h4 class="reveal">Giri Photography</h4>
+        <p class="reveal reveal-delay-1">A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+        <div class="social">
+          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+          <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+          <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+        </div>
+      </div>
+      <div class="foot-links">
+        <div class="head reveal">Quick Links</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-links">
+        <div class="head reveal">Explore</div>
+        <ul>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="head foot-links reveal" style="margin-bottom:14px;">Visit Us</div>
+        <div class="visit-box">
+          <p class="reveal"><i class="fa-solid fa-location-dot"></i> kompally , hyderabad</p>
+          <p class="reveal reveal-delay-1"><i class="fa-solid fa-phone"></i> +91 98484 03872</p>
+          <p class="reveal reveal-delay-2"><i class="fa-solid fa-clock"></i> Mon&ndash;Sat, 10:00 AM &ndash; 8:30 PM</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Kompally,+Hyderabad" target="_blank" rel="noopener" class="get-dir">GET DIRECTIONS <i class="fa-solid fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom reveal">
+      <span>&copy; 2026 Giri Photography. All rights reserved.</span>
+      <span><a href="#">Privacy policy</a><a href="#">Terms of service</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+919848403872" class="call-float call-float-enter" aria-label="Call the studio">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2Z"/>
+  </svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/portfolio.js"></script>
+</body>
+</html>

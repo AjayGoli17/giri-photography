@@ -1,0 +1,641 @@
+/* =========================================================
+   contact.css — PAGE-SPECIFIC styles only for contact.html
+   Global reset/body-tag/header/nav/footer now live in the
+   site-wide style.css (and this page's HTML already uses
+   that shared header/footer markup). This file only contains
+   selectors unique to the contact page's content.
+
+   Reconciled to use the global tokens/fonts from style.css.
+   All page-specific tokens mapped 1:1 onto existing globals:
+     --cream     -> --bg          (#fdf8f3 ~ #F7F3EC)
+     --gold /
+     --gold-dark -> --accent-green (page accent -> brand accent)
+     --dark      -> --ink         (#1c1c1a ~ #1a1a18)
+     --text-gray -> --muted       (exact match, #6b6b66)
+     --border    -> --line        (#e7e0d8 ~ #dcd9d2)
+     --ivory     -> --alt-bg      (#f7f2ea ~ #EEE8DD)
+   Fonts: Poppins -> Manrope (--font-body), Playfair Display
+   -> Fraunces (--font-heading).
+   ========================================================= */
+
+   /* Safety net: don't rely on style.css having set this globally.
+      Without border-box, width:100% + padding on the card/inputs
+      below can push content past the viewport and cause a
+      horizontal scrollbar (overflow visible on the right side). */
+      *, *::before, *::after{
+        box-sizing:border-box;
+      }
+    
+      html{
+        max-width:100%;
+        overflow-x:hidden;
+      }
+    
+      body{
+        font-family:var(--font-body);
+        color:var(--ink);
+        background:var(--bg);
+      }
+      
+      h1, h2, h3{
+        font-family:var(--font-heading);
+      }
+      
+      /* ============ HERO ============ */
+      .hero{
+        text-align:center;
+        padding:clamp(50px,8vw,80px) 20px 30px;
+      }
+      .eyebrow{
+        font-size:12px;
+        letter-spacing:2px;
+        color:var(--accent-green);
+        font-weight:600;
+        margin-bottom:18px;
+      }
+      .hero h1{
+        font-size:clamp(30px,5.5vw,48px);
+        line-height:1.2;
+        font-weight:700;
+        color:var(--ink);
+      }
+      .hero h1 .gold-line{
+        color:var(--accent-green);
+        display:block;
+      }
+      .hero p{
+        max-width:640px;
+        margin:24px auto 0;
+        color:var(--muted);
+        font-size:15px;
+        line-height:1.7;
+      }
+      
+      /* ============ FORM CARD ============ */
+      .card-wrap{
+        display:flex;
+        justify-content:center;
+        padding:20px clamp(16px,4vw,60px) 100px;
+      }
+      .card{
+        background: #FFFFFF;
+        max-width:1100px;
+        width:100%;
+        border-radius:6px;
+        box-shadow:0 30px 60px -20px rgba(0,0,0,0.08);
+        padding:clamp(24px,5vw,50px);
+        display:flex;
+        gap:clamp(24px,5vw,50px);
+        flex-wrap:wrap;
+      }
+      .card-left{
+        flex:1 1 280px;
+        border-right:1px solid var(--line);
+        padding-right:clamp(0px,4vw,40px);
+        min-width:240px;
+        /* allow the gallery row inside to bleed/scroll without being
+           clipped or forcing the whole card wider than viewport */
+        min-width:0;
+        max-width:100%;
+      }
+      .card-left h3{
+        font-size:22px;
+        color:var(--accent-green);
+        font-weight:700;
+        margin-bottom:14px;
+      }
+      .card-left > p{
+        color:var(--muted);
+        font-size:13.5px;
+        line-height:1.7;
+        margin-bottom:24px;
+      }
+      .info-row{
+        display:flex;
+        align-items:flex-start;
+        gap:12px;
+        margin-bottom:14px;
+        font-size:13.5px;
+      }
+      .info-icon{
+        width:28px; height:28px;
+        border-radius:50%;
+        background:var(--bg);
+        display:flex; align-items:center; justify-content:center;
+        flex-shrink:0;
+        color:var(--accent-green);
+      }
+      .hours-title{
+        font-size:11px;
+        letter-spacing:1px;
+        color:var(--muted);
+        margin:24px 0 12px;
+        font-weight:600;
+      }
+      .hours-row{
+        display:flex;
+        justify-content:space-between;
+        font-size:13.5px;
+        margin-bottom:6px;
+        color:#3a3a38;
+      }
+      .gallery-title{
+        font-size:11px;
+        letter-spacing:1px;
+        color:var(--muted);
+        margin:24px 0 12px;
+        font-weight:600;
+      }
+    
+      /* ---- GALLERY: horizontal-scroll strip on all sizes ---- */
+      .gallery-imgs{
+        display:flex;
+        gap:14px;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        overflow-y:hidden;
+        scroll-snap-type:x mandatory;
+        padding-bottom:10px;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:thin;
+        scrollbar-color:var(--accent-green) transparent;
+        /* let the strip use the full available width and scroll
+           instead of wrapping/shrinking images on narrow screens */
+        width:100%;
+        max-width:100%;
+      }
+      .gallery-imgs::-webkit-scrollbar{ height:6px; }
+      .gallery-imgs::-webkit-scrollbar-thumb{ background:var(--accent-green); border-radius:6px; }
+      .gallery-imgs::-webkit-scrollbar-track{ background:transparent; }
+      .gallery-imgs div{
+        width:150px;
+        height:150px;
+        border-radius:8px;
+        overflow:hidden;
+        flex:0 0 150px;
+        scroll-snap-align:start;
+      }
+      .gallery-imgs div img{ width:100%; height:100%; object-fit:cover; display:block; }
+    
+      .gallery-icon-box{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background:var(--bg);
+        color:var(--accent-green);
+        font-size:34px;
+      }
+      
+      .card-right{ flex:1 1 280px; min-width:240px; }
+      
+      .field{ margin-bottom:18px; }
+      .field label{
+        display:block;
+        font-size:12.5px;
+        color:#8a8a84;
+        margin-bottom:8px;
+      }
+      .field.event-date label{ color:var(--accent-green); font-weight:500; }
+      .field input,
+      .field select,
+      .field textarea{
+        width:100%;
+        border:none;
+        border-bottom:1px solid var(--line);
+        padding:6px 0 10px;
+        font-family:var(--font-body);
+        font-size:16px;
+        color:#222;
+        background:transparent;
+        outline:none;
+      }
+      .field select{
+        appearance:none; -webkit-appearance:none; cursor:pointer; font-size:14px;
+        padding-right:24px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      .select-wrap{ position:relative; }
+      .select-wrap::after{
+        content:'⌄';
+        position:absolute;
+        right:0; top:18px;
+        font-size:16px;
+        color:#999;
+        pointer-events:none;
+      }
+      .field textarea{ resize:none; height:40px; }
+      
+      .submit-btn{
+        width:100%;
+        background:#000;
+        color:#fff;
+        border:1px solid transparent;
+        padding:16px;
+        border-radius:4px;
+        font-size:13px;
+        letter-spacing:1.5px;
+        font-weight:600;
+        cursor:pointer;
+        margin-top:10px;
+        transition:background .2s;
+      }
+      .submit-btn:hover{
+        background:transparent;
+        color:#000;
+        border:1px solid #000;
+      }
+      
+      /* ============ LOCATION SECTION ============ */
+      .location-section{ text-align:center; padding:0 20px 30px; }
+      .location-section h2{ font-size:clamp(26px,4vw,32px); margin-top:10px; font-weight:700; }
+      
+      .location-content{
+        display:flex;
+        gap:40px;
+        max-width:1280px;
+        margin:50px auto 0;
+        padding:0 16px 100px;
+        align-items:stretch;
+        flex-wrap:wrap;
+        /* contains the scroll-reveal-left/right entrance transforms
+           (translateX ±40px before they're revealed) so they can't
+           create page-level horizontal overflow. Scoped here instead
+           of on body/html so it never interferes with the header's
+           position:sticky. */
+        overflow-x:hidden;
+      }
+      .map-box{
+        flex:1 1 320px;
+        background:var(--bg);
+        border-radius:10px;
+        min-height:320px;
+        overflow:hidden;
+      }
+      .map-box iframe{ display:block; width:100%; height:100%; min-height:320px; }
+      
+      .find-us{ flex:1 1 280px; text-align:left; padding-top:10px; }
+      .find-us h3{ color:var(--accent-green); font-size:16px; font-weight:600; margin-bottom:14px; }
+      .find-us > p{ color:var(--muted); font-size:13.5px; line-height:1.8; margin-bottom:24px; }
+      
+      .feature-row{ display:flex; gap:14px; margin-bottom:18px; }
+      .feature-icon{
+        width:30px; height:30px;
+        border-radius:50%;
+        background:var(--bg);
+        display:flex; align-items:center; justify-content:center;
+        flex-shrink:0;
+        color:var(--accent-green);
+        font-size:13px;
+      }
+      .feature-text strong{
+        display:block;
+        font-size:11px;
+        letter-spacing:1px;
+        color:#3a3a38;
+        margin-bottom:3px;
+      }
+      .feature-text span{ font-size:13px; color:var(--muted); }
+      
+      .directions-btn{
+        margin-top:14px;
+        display:inline-block;
+        border:1px solid var(--accent-green);
+        color:var(--accent-green);
+        padding:11px 24px;
+        border-radius:4px;
+        font-size:12.5px;
+        font-weight:500;
+        letter-spacing:.3px;
+      }
+      
+      /* ============ CALL FLOATING BUTTON ============ */
+      .call-float{
+        position:fixed;
+        bottom:24px;
+        right:24px;
+        width:58px;
+        height:58px;
+        background:var(--ink);
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        box-shadow:0 8px 20px rgba(0,0,0,0.2);
+        z-index:50;
+        transition:transform .2s;
+      }
+      .call-float:hover{ transform:scale(1.08); }
+      .call-float svg{ width:26px; height:26px; }
+      
+      /* ============ RESPONSIVE (page-specific only) ============ */
+    
+      /* ---- Tablet (≤900px): card stacks, gallery stays a
+         horizontal scroll strip, images sized down a touch ---- */
+      @media(max-width:900px){
+        .card{ flex-direction:column; }
+        .card-left{ border-right:none; border-bottom:1px solid var(--line); padding-right:0; padding-bottom:30px; }
+        .location-content{ flex-direction:column; }
+    
+        .gallery-imgs{ gap:12px; }
+        .gallery-imgs div{
+          width:130px;
+          height:130px;
+          flex:0 0 130px;
+        }
+      }
+      
+      /* ---- Mobile (≤600px): tighter spacing, gallery still
+         horizontal-scroll, negative margin lets it bleed edge-to-edge ---- */
+      @media(max-width:600px){
+        .hero{ padding:40px 16px 36px; }
+        .hero p{ font-size:14px; }
+        .card-wrap{ padding:30px 12px 60px; }
+        .card{ padding:24px; border-radius:8px; }
+        .location-section{ padding:0 16px 20px; }
+        .location-content{ margin-top:30px; padding:0 12px 60px; gap:30px; }
+        .call-float{ width:50px; height:50px; bottom:16px; right:16px; }
+        .call-float svg{ width:22px; height:22px; }
+    
+        .gallery-title{ margin:20px 0 10px; }
+        .gallery-imgs{
+          gap:10px;
+          margin:0 -24px;
+          padding:0 24px 10px;
+          scroll-padding-left:24px;
+        }
+        .gallery-imgs div{
+          width:110px;
+          height:110px;
+          flex:0 0 110px;
+          border-radius:6px;
+        }
+      }
+      
+      @media(max-width:380px){
+        .hero h1{ font-size:26px; }
+        .gallery-imgs div{
+          width:96px;
+          height:96px;
+          flex:0 0 96px;
+        }
+        .gallery-imgs{
+          margin:0 -16px;
+          padding:0 16px 10px;
+          scroll-padding-left:16px;
+        }
+      }
+    /* =========================================================
+       ANIMATION LAYER — premium micro-interactions
+       All timings use two custom easing curves instead of
+       default ease/ease-in-out, which is what makes motion
+       read as "designed" rather than default-browser.
+       ========================================================= */
+    
+    :root{
+      --ease-premium:   cubic-bezier(0.16, 1, 0.3, 1);   /* soft expo-out, for entrances */
+      --ease-premium-2: cubic-bezier(0.65, 0, 0.35, 1);  /* symmetric, for hover states */
+    }
+    
+    /* Fix: custom cursor dot must never block hover/click on elements
+       underneath it (was preventing .directions-btn / .submit-btn hover) */
+    .cursor-dot{
+      pointer-events:none !important;
+    }
+    
+    html{ scroll-behavior:smooth; }
+    
+    /* ---------------------------------------------------------
+       HERO — staggered entrance (preloader removed; body.loaded
+       is now set immediately on DOMContentLoaded)
+    --------------------------------------------------------- */
+    .reveal-up{
+      opacity:0;
+      transform:translateY(22px);
+      animation:revealUp .9s var(--ease-premium) forwards;
+      animation-play-state:paused;
+      animation-delay:var(--d,0s);
+    }
+    body.loaded .reveal-up{ animation-play-state:running; }
+    @keyframes revealUp{
+      to{ opacity:1; transform:translateY(0); }
+    }
+    
+    .hero h1{ position:relative; }
+    .hero h1 .gold-line{
+      position:relative;
+      display:inline-block;
+    }
+    .gold-underline{
+      display:none;
+    }
+    
+    /* ---------------------------------------------------------
+       SCROLL REVEALS — card, sections, map/find-us split
+    --------------------------------------------------------- */
+    .scroll-reveal{
+      opacity:0;
+      transform:translateY(40px) scale(0.985);
+      transition:opacity .8s var(--ease-premium), transform .8s var(--ease-premium);
+    }
+    .scroll-reveal.is-visible{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+    
+    .scroll-reveal-left{
+      opacity:0;
+      transform:translateX(-40px);
+      transition:opacity .8s var(--ease-premium), transform .8s var(--ease-premium);
+    }
+    .scroll-reveal-left.is-visible{ opacity:1; transform:translateX(0); }
+    
+    .scroll-reveal-right{
+      opacity:0;
+      transform:translateX(40px);
+      transition:opacity .8s var(--ease-premium), transform .8s var(--ease-premium);
+    }
+    .scroll-reveal-right.is-visible{ opacity:1; transform:translateX(0); }
+    
+    /* ---------------------------------------------------------
+       FORM — floating labels, underline sweep, focus states
+    --------------------------------------------------------- */
+    .input-wrap{ position:relative; }
+    
+    .input-wrap input,
+    .input-wrap select,
+    .input-wrap textarea{
+      width:100%;
+      border:none;
+      border-bottom:1px solid var(--line);
+      background:transparent;
+      padding:22px 0 10px;
+      font-family:var(--font-body);
+      font-size:16px;
+      color:#222;
+      outline:none;
+      transition:color .3s ease;
+    }
+    .input-wrap select{
+      appearance:none; -webkit-appearance:none; cursor:pointer; font-size:14px;
+      padding-right:24px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .input-wrap textarea{ resize:none; height:46px; padding-top:24px; }
+    
+    .input-wrap label{
+      position:absolute;
+      left:0; top:22px;
+      margin:0;
+      font-size:15px;
+      font-weight:400;
+      color:#8a8a84;
+      pointer-events:none;
+      transform-origin:left top;
+      transition:transform .35s var(--ease-premium), color .35s var(--ease-premium);
+    }
+    
+    /* float label up when input has content or is focused (placeholder=" " trick) */
+    .input-wrap input:not(:placeholder-shown) + label,
+    .input-wrap input:focus + label,
+    .input-wrap textarea:not(:placeholder-shown) + label,
+    .input-wrap textarea:focus + label{
+      transform:translateY(-16px) scale(0.76);
+      color:var(--accent-green);
+    }
+    
+    /* select + date field labels stay floated permanently (no placeholder-shown for select) */
+    .input-wrap label.label-static{
+      transform:translateY(-16px) scale(0.76);
+      color:var(--accent-green);
+    }
+    
+    .input-underline{
+      position:absolute;
+      left:0; bottom:0;
+      height:2px; width:100%;
+      background:var(--accent-green);
+      transform:scaleX(0);
+      transform-origin:center;
+      transition:transform .45s var(--ease-premium);
+    }
+    .input-wrap:focus-within .input-underline{ transform:scaleX(1); }
+    
+    /* ---------------------------------------------------------
+       SUBMIT BUTTON — hover shine + success morph
+    --------------------------------------------------------- */
+    .submit-btn{
+      position:relative;
+      overflow:hidden;
+      transition:background .3s var(--ease-premium), letter-spacing .3s var(--ease-premium);
+    }
+    .submit-btn::before{
+      content:'';
+      position:absolute;
+      top:0; left:-75%;
+      width:50%; height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+      transform:skewX(-20deg);
+      transition:left .65s var(--ease-premium);
+    }
+    .submit-btn:hover{ letter-spacing:2px; }
+    .submit-btn:hover::before{ left:125%; }
+    
+    .submit-btn.is-success{ background:var(--accent-green); }
+    .submit-btn .btn-text{ display:inline-block; }
+    .submit-btn.is-success .btn-text{
+      animation:btnTextSwap .35s var(--ease-premium);
+    }
+    @keyframes btnTextSwap{
+      from{ opacity:0; transform:translateY(6px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    
+    /* ---------------------------------------------------------
+       GALLERY — fade-in on load + hover zoom
+    --------------------------------------------------------- */
+    .fade-img{
+      opacity:0;
+      transform:scale(1.04);
+      transition:opacity .6s var(--ease-premium), transform .6s var(--ease-premium);
+    }
+    .fade-img.is-loaded{ opacity:1; transform:scale(1); }
+    
+    .gallery-imgs div{ position:relative; }
+    .gallery-imgs div img{
+      transition:transform .55s var(--ease-premium);
+    }
+    .gallery-imgs div:hover img{ transform:scale(1.1); }
+    
+    .gallery-icon-box i{
+      transition:transform .55s var(--ease-premium);
+    }
+    .gallery-icon-box:hover i{ transform:scale(1.15); }
+    
+    /* ---------------------------------------------------------
+       DIRECTIONS BUTTON — fill sweep on hover
+    --------------------------------------------------------- */
+    .directions-btn{
+      position:relative;
+      overflow:hidden;
+      z-index:1;
+      background:transparent;
+      transition:color .35s var(--ease-premium), border-color .35s var(--ease-premium), background .35s var(--ease-premium);
+    }
+    .directions-btn::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:#000;
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .45s var(--ease-premium);
+      z-index:-1;
+    }
+    .directions-btn:hover,
+    .directions-btn:focus{
+      color:#fff;
+      border-color:#000;
+    }
+    .directions-btn:hover::before,
+    .directions-btn:focus::before{ transform:scaleX(1); }
+    
+    /* ---------------------------------------------------------
+       CALL FLOAT — entrance + idle pulse
+    --------------------------------------------------------- */
+    .call-float-enter{
+      opacity:0;
+      transform:scale(0.3);
+      animation:
+        callEnter .6s var(--ease-premium) 1s forwards,
+        callPulse 2.6s ease-in-out 1.6s infinite;
+    }
+    @keyframes callEnter{
+      0%{ opacity:0; transform:scale(0.3); }
+      60%{ opacity:1; transform:scale(1.15); }
+      100%{ opacity:1; transform:scale(1); }
+    }
+    @keyframes callPulse{
+      0%, 100%{ transform:scale(1); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+      50%{ transform:scale(1.06); box-shadow:0 10px 26px rgba(0,0,0,0.28); }
+    }
+    
+    /* ---------------------------------------------------------
+       REDUCED MOTION — accessibility, non-negotiable
+    --------------------------------------------------------- */
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{
+        animation-duration:0.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:0.001ms !important;
+        scroll-behavior:auto !important;
+      }
+      .reveal-up, .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .fade-img{
+        opacity:1 !important;
+        transform:none !important;
+      }
+      .call-float-enter{ opacity:1; transform:scale(1); }
+    }

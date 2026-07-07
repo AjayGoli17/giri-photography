@@ -1,0 +1,842 @@
+/* =========================================================
+   service.css — PAGE-SPECIFIC styles only for services.html
+   Global reset/body/header/nav/footer/buttons now live in
+   the site-wide style.css. This file only contains selectors
+   unique to the services page content.
+
+   Reconciled to use the global tokens/fonts from style.css
+   (Fraunces / Manrope, --ink, --muted, --accent-green).
+   ========================================================= */
+
+/* Page-specific token not defined globally: a faint ink-tint
+   used for the oversized background words. Derived from --ink. */
+   :root{
+    --ghost:rgba(26,26,24,0.05);
+  }
+  
+  /* ============ HERO ============ */
+  .hero{ padding-top:30px; }
+  .eyebrow{ font-size:11px; letter-spacing:3px; color:var(--muted); margin-bottom:26px; }
+  .hero-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; flex-wrap:wrap; }
+  
+  h1.display{
+    font-family:var(--font-heading);
+    font-weight:500;
+    font-size:78px;
+    line-height:1.02;
+    letter-spacing:-1px;
+  }
+  
+  .hero-desc{
+    max-width:230px;
+    font-size:13px;
+    line-height:1.8;
+    color:var(--muted);
+    padding-bottom:10px;
+  }
+  
+  .section-bg-word{
+    font-family:var(--font-heading);
+    font-size:clamp(60px, 19vw, 160px);
+    color:var(--ghost);
+    text-align:center;
+    line-height:1.15;
+    margin:10px 0 20px;
+    letter-spacing:2px;
+    user-select:none;
+    white-space:nowrap;
+    overflow:hidden;
+    width:100%;
+    padding:0 16px;
+    box-sizing:border-box;
+  }
+  
+  /* ============ SERVICES / CARDS GRID ============ */
+  .services{ padding-bottom:100px; }
+  
+  .row{ display:grid; gap:40px; margin-bottom:60px; align-items:start; }
+  .row.two{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  .prewedding-card{ margin-top:120px; }
+  .row.three{ grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
+  
+  .card{ display:flex; flex-direction:column; }
+  .card .img-box{
+    width:100%;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    background:#ddd;
+    margin-bottom:22px;
+  }
+  .img-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .card .img-box.tall{ aspect-ratio:3/4; }
+  .card .img-box.square{ aspect-ratio:1/1; }
+  .card .img-box.duo{ aspect-ratio:5/4; }
+  
+  .card h3{
+    font-family:var(--font-heading);
+    font-weight:500;
+    font-size:26px;
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  
+  .card p.desc{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:20px;
+    max-width:280px;
+  }
+
+  /* ============ CARD FOOTER: price + Book Now ============ */
+  .card-footer{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    margin-top:auto;
+    padding-top:8px;
+  }
+
+  .price-label{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .price-label strong{
+    display:inline;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--ink);
+    margin-left:5px;
+  }
+
+  .book-now{
+    display:inline-block;
+    flex-shrink:0;
+    padding:12px 24px;
+    font-family:var(--font-body);
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    border:1px solid var(--ink);
+    color:var(--ink);
+    white-space:nowrap;
+    transition:.25s;
+  }
+  .book-now:hover{
+    background:var(--ink);
+    color:#fff;
+  }
+
+  /* legacy alias kept in case markup elsewhere still references .price */
+  .price{ font-size:13px; letter-spacing:.5px; display:flex; align-items:center; gap:6px; }
+  .price .label{
+    color:var(--muted);
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-right:4px;
+  }
+  
+  .placeholder{
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#e7e1d6,#d8d0c1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#a89b82;
+    font-family:var(--font-heading);
+    font-style:italic;
+    font-size:14px;
+  }
+  
+  /* engagement special block */
+  .engagement-block{ display:flex; flex-direction:column; justify-content:flex-end; }
+  .engagement-block .img-box{ aspect-ratio:3/4; }
+  
+  /* sangeet flex row */
+  .sangeet-row{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+    gap:40px;
+    align-items:center;
+    margin-bottom:60px;
+  }
+  .sangeet-row .text-col h3{
+    font-family:var(--font-heading);
+    font-size:26px;
+    margin-bottom:10px;
+  }
+  
+  /* staggered layout row */
+  .stagger{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:start; margin-bottom:60px; }
+  
+  .small-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); gap:30px; margin-bottom:60px; align-items:start; }
+  .small-grid .img-box{ aspect-ratio:3/4; margin-bottom:14px; }
+  .small-grid h4{ font-family:var(--font-heading); font-weight:500; font-size:18px; margin-bottom:6px; }
+  .small-grid .desc{ font-size:12px; max-width:none; }
+  .small-grid .price-label,
+  .small-grid .price-label strong{ font-size:10px; }
+  .small-grid .book-now{ padding:10px 18px; font-size:10px; }
+  
+  /* baby shoot overlay card — styled like the reference badge */
+  .overlay-card{ position:relative; padding-top:60px; }
+  .overlay-tag{
+    position:absolute;
+    top:0;
+    left:-40px;
+    background:var(--ink);
+    color:#fff;
+    padding:30px 34px;
+    width:300px;
+    z-index:2;
+    box-shadow:0 18px 40px rgba(0,0,0,0.25);
+  }
+  .overlay-tag .eyebrow-tag{
+    display:block;
+    font-size:11px;
+    letter-spacing:3px;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .overlay-tag .big{
+    display:block;
+    font-family:var(--font-heading);
+    font-weight:500;
+    font-size:30px;
+    line-height:1.15;
+    margin-bottom:14px;
+    color:#fff;
+  }
+  .overlay-tag .desc{
+    color:rgba(255,255,255,0.65);
+    font-size:12px;
+    line-height:1.6;
+    max-width:none;
+    margin-bottom:18px;
+  }
+  .overlay-tag .divider{
+    display:block;
+    width:36px;
+    height:1px;
+    background:rgba(255,255,255,0.35);
+    margin-bottom:18px;
+  }
+  .overlay-tag .price-tag{
+    display:block;
+    font-family:var(--font-heading);
+    font-size:22px;
+    color:#fff;
+    letter-spacing:.5px;
+  }
+  .overlay-tag .card-footer{
+    margin-top:0;
+    padding-top:0;
+    align-items:center;
+  }
+  .overlay-tag .price-label{ color:rgba(255,255,255,0.55); }
+  .overlay-tag .price-label strong{ color:#fff; }
+  .overlay-tag .book-now{
+    border-color:rgba(255,255,255,0.5);
+    color:#fff;
+  }
+  .overlay-tag .book-now:hover{
+    background:#fff;
+    color:var(--ink);
+    border-color:#fff;
+  }
+  
+
+  
+  /* ============ RESPONSIVE (page-specific only) ============ */
+  @media(max-width:900px){
+    .cta-buttons{ flex-direction:column; }
+    .hero{ padding-top:24px; }
+    h1.display{ font-size:46px; } 
+    .hero-row{ flex-direction:column; align-items:flex-start; }
+    .row.two, .row.three, .sangeet-row, .stagger, .small-grid{ grid-template-columns:1fr; }
+    .prewedding-card{ margin-top:0; }
+    .services{ padding-bottom:60px; }
+    .overlay-tag{ width:240px; padding:18px 20px; left:-12px; }
+    .overlay-tag .big{ font-size:22px; }
+    .cta-card{ padding:60px 28px; border-radius:20px; }
+    .cta-card h2{ font-size:30px; }
+    .cta-buttons a{ width:auto; max-width:260px; padding:15px 34px; }
+  }
+
+  @media(max-width:600px){
+    .cta-card{ padding:52px 22px; }
+    .cta-card h2{ font-size:27px; }
+    .cta-desc{ font-size:12.5px; margin-bottom:28px; }
+    .cta-buttons a{ max-width:220px; padding:14px 24px; font-size:10.5px; }
+  }
+
+  @media(max-width:480px){
+    .overlay-tag{ position:static; width:100%; margin-top:16px; box-shadow:none; }
+    .overlay-card{ padding-top:0; }
+    .cta-card{ padding:46px 18px; }
+    .cta-card h2{ font-size:23px; margin-bottom:16px; }
+    .cta-desc{ font-size:12px; margin-bottom:24px; }
+    .cta-buttons{ gap:12px; }
+    .cta-buttons a{ width:100%; max-width:220px; padding:13px 18px; font-size:10px; letter-spacing:1px; text-align:center; }
+  }
+
+  @media(max-width:400px){
+    .hero{ padding-top:20px; }
+    .eyebrow{ letter-spacing:2px; margin-bottom:20px; }
+    h1.display{ font-size:36px; }
+    .hero-desc{ max-width:100%; font-size:12.5px; }
+    .services{ padding-bottom:44px; }
+    .row{ gap:28px; margin-bottom:44px; }
+    .stagger{ gap:28px; margin-bottom:44px; }
+    .sangeet-row{ gap:24px; margin-bottom:44px; }
+    .small-grid{ gap:24px; margin-bottom:44px; }
+    .card h3{ font-size:22px; }
+    .card p.desc{ font-size:12px; }
+    .overlay-tag{ width:100%; padding:20px 18px; }
+    .overlay-tag .big{ font-size:20px; }
+    .card-footer{ gap:12px; }
+    .book-now{ padding:11px 20px; font-size:10px; }
+  }
+
+  @media(max-width:340px){
+    .hero{ padding-top:16px; }
+    h1.display{ font-size:30px; }
+    .services{ padding-bottom:36px; }
+    .card h3{ font-size:19px; }
+    .price-label, .price-label strong{ font-size:10px; }
+    .book-now{ padding:10px 16px; font-size:9px; letter-spacing:1px; }
+    .cta-card{ padding:44px 14px; border-radius:16px; }
+    .cta-card h2{ font-size:22px; }
+    .cta-desc{ font-size:11.5px; }
+    .cta-buttons a{ padding:13px 14px; font-size:9px; letter-spacing:.5px; max-width:180px; }
+  }
+/* =========================================================
+   PREMIUM MOTION LAYER
+   Full list covering headings, buttons, images, nav, footer
+   and section-level content across the whole page:
+    1. Hero headline mask reveal (h1.display)
+    2. Section heading fade-up (card/small-grid h3 & h4, .tag)
+    3. Letter-spacing "breathe" on eyebrow text
+    4. Magnetic hover-lift on buttons (.book-now, .btn, .cta-buttons a)
+    5. Fill-sweep hover on buttons
+    6. Nav link underline draw on hover
+    7. Nav-toggle icon rotate on open/close
+    8. Image scale-on-load ("Ken Burns" lite)
+    9. Image hover zoom
+   10. Logo fade + scale in once on page load
+   11. Staggered card reveal (every section)
+   12. Two-stage reveal (image/heading, then price + Book Now)
+   13. Parallax drift for the giant background words
+   14. CTA card gradient shift
+   15. Footer fade-up
+   16. Page-transition fade between internal pages
+   17. Eased header hide/show (hooks into main.js's toggle)
+   All motion is skipped automatically for users who have
+   "prefers-reduced-motion: reduce" set (handled in service.js
+   for JS-driven effects, and via the media query at the very
+   bottom of this block for CSS-only ones).
+   ========================================================= */
+
+:root{
+  --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- 1 + 9. Base scroll-reveal + stagger ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .8s var(--ease-lux),
+    transform .8s var(--ease-lux);
+  transition-delay: calc(var(--i, 0) * 100ms);
+}
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+/* Two-stage reveal: price/CTA footer settles in a beat after
+   the card above it has already appeared. */
+.reveal .card-footer{
+  opacity:0;
+  transform:translateY(14px);
+  transition:
+    opacity .6s var(--ease-lux),
+    transform .6s var(--ease-lux);
+  transition-delay: calc((var(--i, 0) * 100ms) + 220ms);
+}
+.reveal.is-visible .card-footer{
+  opacity:1;
+  transform:none;
+}
+
+/* ---------- 3. Text mask reveal for the hero headline ---------- */
+h1.display.reveal{
+  opacity:1; /* the clip-path handles the reveal, not opacity */
+  transform:none;
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1s var(--ease-lux);
+}
+h1.display.reveal.is-visible{
+  clip-path:inset(0 0 0% 0);
+}
+
+/* ---------- Hero paragraph: soft blur-to-focus reveal ----------
+   Settles in a beat after the headline's curtain-reveal finishes,
+   with a gentle blur clearing alongside the usual fade + rise —
+   gives the paragraph its own quieter, more editorial entrance
+   instead of the plain card fade-up. */
+.hero-desc.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  filter:blur(6px);
+  transition:
+    opacity 1s var(--ease-lux),
+    transform 1s var(--ease-lux),
+    filter 1s var(--ease-lux);
+  transition-delay:.35s;
+}
+.hero-desc.reveal.is-visible{
+  opacity:1;
+  transform:none;
+  filter:blur(0);
+}
+
+/* ---------- 4. Background word: fade only, JS drives the parallax transform ---------- */
+.section-bg-word.reveal{
+  opacity:0;
+  transform:none;
+  transition:opacity 1.1s var(--ease-lux);
+}
+.section-bg-word.reveal.is-visible{
+  opacity:1;
+}
+
+/* ---------- 8. Overlay-tag slides in from the side ---------- */
+.overlay-tag.reveal{
+  opacity:0;
+  transform:translateX(-60px);
+  transition:
+    opacity .8s var(--ease-lux),
+    transform .8s var(--ease-lux);
+}
+.overlay-tag.reveal.is-visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+/* ---------- 2 + 6. Image scale-on-load + hover zoom ---------- */
+.img-box img{
+  transform:scale(1.12);
+  transition:transform 1.2s var(--ease-lux);
+}
+.reveal.is-visible .img-box img{
+  transform:scale(1);
+}
+.img-box:hover img{
+  transform:scale(1.06);
+  transition:transform .6s var(--ease-lux);
+}
+
+/* ---------- 5. Magnetic hover-lift on Book Now ---------- */
+.book-now{
+  transition:
+    transform .35s var(--ease-lux),
+    box-shadow .35s var(--ease-lux),
+    background .35s var(--ease-lux),
+    color .35s var(--ease-lux);
+}
+.book-now:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(26,26,24,0.18);
+}
+.overlay-tag .book-now:hover{
+  box-shadow:0 14px 28px rgba(0,0,0,0.35);
+}
+
+/* ---------- 10. Eased header hide/show ----------
+   main.js toggles the header's hidden state elsewhere; this
+   just makes whatever transform/class it applies animate with
+   a smoother, longer curve instead of snapping instantly. */
+header{
+  transition:transform .45s var(--ease-lux);
+}
+
+/* ---------- 11. Slow gradient shift behind the CTA card ---------- */
+.cta-card{
+  background:linear-gradient(120deg, var(--ink), #2b2b25, var(--ink));
+  background-size:200% 200%;
+  animation:ctaGradientShift 14s ease-in-out infinite;
+}
+@keyframes ctaGradientShift{
+  0%{ background-position:0% 50%; }
+  50%{ background-position:100% 50%; }
+  100%{ background-position:0% 50%; }
+}
+
+/* ---------- 13. Page-transition fade ---------- */
+body.page-fade{
+  opacity:0;
+  transition:opacity .5s ease;
+}
+body.page-fade.page-loaded{
+  opacity:1;
+}
+body.page-fade.page-leaving{
+  opacity:0;
+}
+
+/* ---------- 2. Section heading fade-up ----------
+   h3/h4/.tag inherit the reveal timing of their parent card,
+   but rise in slightly after the image so the eye lands on
+   the picture first, then the title. */
+.reveal h3,
+.reveal h4{
+  opacity:0;
+  transform:translateY(16px);
+  transition:
+    opacity .6s var(--ease-lux),
+    transform .6s var(--ease-lux);
+  transition-delay: calc((var(--i, 0) * 100ms) + 120ms);
+}
+.reveal.is-visible h3,
+.reveal.is-visible h4{
+  opacity:1;
+  transform:none;
+}
+
+/* ---------- 3. Letter-spacing "breathe" on eyebrow text ---------- */
+.eyebrow,
+.overlay-tag .eyebrow-tag{
+  letter-spacing:6px;
+  opacity:0;
+  transition:
+    letter-spacing 1s var(--ease-lux),
+    opacity .8s var(--ease-lux);
+}
+.reveal.is-visible .eyebrow,
+.reveal.is-visible .overlay-tag .eyebrow-tag,
+.eyebrow.reveal.is-visible{
+  letter-spacing:3px;
+  opacity:1;
+}
+.overlay-tag.reveal.is-visible .eyebrow-tag{
+  letter-spacing:3px;
+  opacity:1;
+}
+
+/* ---------- 5. Fill-sweep hover on buttons ----------
+   A dark (or light, on the overlay tag) fill sweeps in from
+   the left on hover, layered under the existing lift + shadow.
+   Note: .cta-buttons a is excluded — it uses a plain fade to a
+   transparent/outline state instead (see the .cta-buttons a rules
+   above). */
+.book-now{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+}
+.book-now::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--ink);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s var(--ease-lux);
+  z-index:-1;
+}
+.book-now:hover::before{
+  transform:scaleX(1);
+}
+.overlay-tag .book-now::before{ background:#fff; }
+
+/* ---------- 6. Nav link underline draw on hover ---------- */
+nav ul li a{
+  position:relative;
+}
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:100%;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .35s var(--ease-lux);
+}
+nav ul li a:hover::after,
+nav ul li a.nav-active::after{
+  transform:scaleX(1);
+}
+
+/* ---------- 7. Nav-toggle icon rotate on open/close ---------- */
+.nav-toggle i{
+  display:inline-block;
+  transition:transform .35s var(--ease-lux);
+}
+.nav-toggle[aria-expanded="true"] i{
+  transform:rotate(90deg);
+}
+
+/* ---------- 10. Logo fade + scale in once on page load ---------- */
+.logo-mark.logo-pending{
+  opacity:0;
+  transform:scale(0.85);
+}
+.logo-mark{
+  display:inline-block;
+  transition:
+    opacity .7s var(--ease-lux),
+    transform .7s var(--ease-lux);
+}
+.logo-mark.logo-in{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* =========================================================
+   EXTENDED MOTION LAYER — additions beyond the original 17
+   18. Header compact-on-scroll (shrinks after leaving the hero)
+   19. Cursor-spotlight glow on card hover
+   20. Subtle 3D tilt on image boxes (follows cursor)
+   21. Ripple effect on Book Now / CTA button clicks
+   22. Footer social icon hover bounce + rotate
+   23. "GET DIRECTIONS" arrow slide-out on hover
+   24. Price label pop-in bounce on reveal
+   25. Background word hover skew wave
+   26. Birthday card playful wiggle on hover
+   All new JS-driven effects are skipped for
+   prefers-reduced-motion (handled in service.js) and the
+   CSS-only ones are neutralized in the media query below.
+   ========================================================= */
+
+/* ---------- 19. Header compact-on-scroll ---------- */
+header.header-compact .header-inner{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+header.header-compact{
+  box-shadow:0 4px 20px rgba(0,0,0,0.06);
+}
+header .header-inner{
+  transition:padding .35s var(--ease-lux);
+}
+header{
+  transition:transform .45s var(--ease-lux), box-shadow .35s var(--ease-lux);
+}
+header.header-compact .logo-mark img{
+  transform:scale(0.88);
+}
+.logo-mark img{
+  transition:transform .35s var(--ease-lux);
+}
+
+/* ---------- 19. Cursor-spotlight glow on card hover ---------- */
+.card,
+.small-grid > div{
+  position:relative;
+}
+.card::after,
+.small-grid > div::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(
+    220px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(26,26,24,0.06),
+    transparent 70%
+  );
+  opacity:0;
+  transition:opacity .4s var(--ease-lux);
+  z-index:1;
+}
+.card:hover::after,
+.small-grid > div:hover::after{
+  opacity:1;
+}
+
+/* ---------- 20. Subtle 3D tilt on image boxes ---------- */
+.img-box{
+  perspective:800px;
+}
+.img-box img{
+  transform:scale(1.12) rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg));
+  transition:transform 1.2s var(--ease-lux);
+  transform-style:preserve-3d;
+}
+.reveal.is-visible .img-box img{
+  transform:scale(1) rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg));
+}
+.img-box:hover img{
+  transition:transform .15s linear;
+}
+
+/* ---------- 21. Ripple effect on button clicks ---------- */
+.book-now,
+.cta-buttons a{
+  position:relative;
+  overflow:hidden;
+}
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.55);
+  transform:scale(0);
+  animation:rippleExpand .6s var(--ease-lux);
+  pointer-events:none;
+  z-index:2;
+}
+.overlay-tag .ripple,
+.cta-buttons a .ripple{
+  background:rgba(26,26,24,0.25);
+}
+@keyframes rippleExpand{
+  to{
+    transform:scale(2.8);
+    opacity:0;
+  }
+}
+
+/* ---------- 22. Footer social icon hover bounce + rotate ---------- */
+.social a span{
+  display:inline-flex;
+  transition:transform .4s var(--ease-lux);
+}
+.social a:hover span{
+  transform:translateY(-4px) rotate(-8deg) scale(1.1);
+}
+.social a:nth-child(2):hover span{
+  transform:translateY(-4px) rotate(8deg) scale(1.1);
+}
+
+/* ---------- 23. "GET DIRECTIONS" arrow slide-out on hover ---------- */
+.get-dir{
+  position:relative;
+  display:inline-block;
+  padding-right:18px;
+  transition:padding-right .3s var(--ease-lux), letter-spacing .3s var(--ease-lux);
+}
+.get-dir::after{
+  content:'\2192';
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translate(-4px, -50%);
+  opacity:0;
+  transition:transform .3s var(--ease-lux), opacity .3s var(--ease-lux);
+}
+.get-dir:hover{
+  padding-right:24px;
+  letter-spacing:1px;
+}
+.get-dir:hover::after{
+  transform:translate(0, -50%);
+  opacity:1;
+}
+
+/* ---------- 24. Price label pop-in bounce on reveal ---------- */
+.reveal .price-label{
+  display:inline-block;
+  transform:scale(0.85);
+  opacity:0;
+  transition:
+    transform .5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity .5s var(--ease-lux);
+  transition-delay: calc((var(--i, 0) * 100ms) + 320ms);
+}
+.reveal.is-visible .price-label{
+  transform:scale(1);
+  opacity:1;
+}
+
+/* ---------- 25. Background word hover skew wave ---------- */
+.section-bg-word{
+  display:inline-block;
+  width:100%;
+  transition:transform .5s var(--ease-lux);
+}
+.section-bg-word:hover{
+  transform:skewX(-3deg) scale(1.015);
+}
+
+/* ---------- 26. Birthday card playful wiggle on hover ---------- */
+.birthday-card .img-box{
+  transition:transform .4s var(--ease-lux);
+}
+.birthday-card:hover .img-box{
+  animation:birthdayWiggle .6s var(--ease-lux);
+}
+@keyframes birthdayWiggle{
+  0%{ transform:rotate(0deg); }
+  25%{ transform:rotate(-2deg); }
+  50%{ transform:rotate(2deg); }
+  75%{ transform:rotate(-1deg); }
+  100%{ transform:rotate(0deg); }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .reveal .card-footer,
+  .reveal h3,
+  .reveal h4,
+  h1.display.reveal,
+  .hero-desc.reveal,
+  .section-bg-word.reveal,
+  .overlay-tag.reveal,
+  .img-box img,
+  .book-now,
+  .book-now::before,
+  .cta-buttons a::before,
+  .eyebrow,
+  .overlay-tag .eyebrow-tag,
+  nav ul li a::after,
+  .nav-toggle i,
+  .logo-mark,
+  .logo-mark img,
+  header,
+  header .header-inner,
+  .card::after,
+  .small-grid > div::after,
+  .img-box img,
+  .ripple,
+  .social a span,
+  .get-dir,
+  .get-dir::after,
+  .reveal .price-label,
+  .section-bg-word,
+  .birthday-card .img-box,
+  body.page-fade{
+    transition:none !important;
+    animation:none !important;
+    clip-path:none !important;
+    transform:none !important;
+    filter:none !important;
+    opacity:1 !important;
+    letter-spacing:normal !important;
+  }
+  .eyebrow, .overlay-tag .eyebrow-tag{ letter-spacing:3px !important; }
+  .cta-card{
+    animation:none;
+    background:var(--ink);
+  }
+}

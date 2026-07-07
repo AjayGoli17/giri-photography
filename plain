@@ -1,0 +1,802 @@
+ <!-- ========<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giri Photography — Visual Archiving</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+ 
+<header>
+  <div class="container header-inner">
+    <a href="#" class="logo" aria-label="Giri Photography home">
+      <span class="logo-mark">
+        <img src="logo.png" alt="Giri Photography logo">
+      </span>
+     
+    </a>
+
+    <nav> 
+      <ul>
+        <li><a href="index.html" class="nav-active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+       <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="btn">Book a Shoot</button>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <ul class="mobile-nav" id="navLinks">
+    <li><a href="index.html" class="nav-active">Home</a></li>
+        <li><a href="team.html">Team</a></li>
+       <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button class="btn">Book a Shoot</button></li>
+  </ul>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <h1>Visual<br>Archiving</h1>
+      <div class="hero-copy">
+        <p>We preserve the emotions, connections, and stories behind every moment through timeless photography.</p>
+        <button class="btn btn-outline">View Portfolio</button>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="ph building" data-label="Architecture">
+        <img src="https://picsum.photos/id/1040/900/700" alt="Architecture">
+      </div>
+      <div class="right-col">
+        <div class="ph coat" data-label="Editorial">
+          <img src="https://picsum.photos/id/1074/700/500" alt="Editorial">
+        </div>
+        <div class="ph lens" data-label="Equipment">
+          <img src="https://picsum.photos/id/250/700/500" alt="Equipment">
+        </div>
+      </div>
+    </div>
+  </div> 
+</section>
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-top">Sircilla &ndash; 505301</div>
+    <div class="stats">
+      <div class="stat"><div class="num">12</div><div class="label">Years of Craft</div></div>
+      <div class="stat"><div class="num">240+</div><div class="label">Editorial Covers</div></div>
+      <div class="stat"><div class="num">18</div><div class="label">Global Awards</div></div>
+      <div class="stat"><div class="num">04</div><div class="label">Studio Cities</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="studio">
+  <div class="container studio-grid">
+    <div>
+      <div class="eyebrow" style="margin-bottom:16px;">The Studio</div>
+      <h2>Capturing moments that deserve to be remembered forever.</h2>
+    </div>
+    <div class="studio-right">
+      <p>At Giri Photography, we believe every photograph tells a story. Through a thoughtful and artistic approach, we capture genuine emotions and unforgettable moments, creating memories that last a lifetime.</p>
+      <a href="#" class="discover">DISCOVER MORE</a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="services-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:10px;">Signature Offerings</div>
+        <h2>Our Services</h2>
+      </div>
+    </div>
+
+    <div class="service-cards-wrap">
+      <div class="service-cards">
+        Service cards are rendered here by home.js (horizontal scroll, all services) 
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span>Swipe to see more</span>
+      <i class="fa-solid fa-arrow-right-long"></i>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-mark">&rdquo;</div>
+    <blockquote>&ldquo;The studio has a unique ability to capture the soul of a garment. Their work isn&rsquo;t just photography; it&rsquo;s high art that communicates prestige and quiet luxury.&rdquo;</blockquote>
+    <cite>&mdash; Creative Director, Vogue</cite>
+    <div class="quote-dots"></div>
+  </div>
+
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>Begin Your Legacy</h2>
+    <p>We are currently accepting a limited number of commissions for the upcoming season. Each project is handled with bespoke care to ensure archival quality that lasts generations.</p>
+    <button class="btn">Book a Consultation</button>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Giri Photography</h4>
+        <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+        <div class="social">
+          <span>&#9711;</span><span>&#9711;</span><span>&#9711;</span>
+        </div>
+      </div>
+      <div class="foot-links">
+        <div class="head">Quick Links</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-links">
+        <div class="head">Explore</div>
+        <ul>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="head foot-links" style="margin-bottom:14px;">Visit Us</div>
+        <div class="visit-box">
+          <p>&#128205; B-2-124, Gandhinagar, Sircilla &ndash; 505301</p>
+          <p>&#128222; +91 94996 04605</p>
+          <p>&#128337; Mon&ndash;Sat, 8:30 AM &ndash; 4:30 PM</p>
+          <div class="get-dir">GET DIRECTIONS</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Giri Photography. All rights reserved.</span>
+      <span><a href="#">Privacy policy</a><a href="#">Terms of service</a></span>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="js/home.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+  </html> 
+
+/* ==========================================================================
+   Giri Photography — Homepage
+   Depends on style.css for tokens, header, footer, buttons, layout helpers
+   ========================================================================== */
+
+/* ============ HERO ============ */
+.hero{ padding:70px 0 50px; }
+
+.hero-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:28px;
+  gap:40px;
+}
+
+.hero-top h1{ line-height:1.05; }
+
+.hero-copy{ max-width:300px; text-align:left; }
+
+.hero-copy p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:24px;
+  margin-top:40px;
+  margin-bottom:100px;
+  height:520px;
+}
+
+.gallery .right-col{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  gap:24px;
+}
+
+.ph{
+  background:#cfcabd;
+  position:relative;
+  overflow:hidden;
+}
+
+.ph.building{ background:linear-gradient(160deg,#7e9aa8 0%,#9fb2b0 35%,#c9a36a 60%,#8a6a3f 100%); }
+.ph.coat{ background:#1c1c1c; }
+.ph.lens{ background:#0e0e0e; }
+
+.ph img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.ph::before{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:40%;
+  background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0));
+  pointer-events:none;
+}
+
+.ph::after{
+  content:attr(data-label);
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-size:10px;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.85);
+  text-transform:uppercase;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
+}
+
+/* ============ STATS ============ */
+.stats-section{ padding:100px 0 40px; border-bottom:1px solid var(--line); }
+
+.stats-top{
+  display:flex;
+  justify-content:flex-end;
+  font-size:12px;
+  color:var(--muted);
+  border-top:1px solid var(--line);
+  padding-top:24px;
+  margin-bottom:36px;
+}
+
+.stats{ display:flex; justify-content:space-between; text-align:center; flex-wrap:nowrap; }
+
+.stat{ flex:1; min-width:0; }
+.stat .num{ font-family:var(--font-heading); font-size:34px; }
+.stat .label{
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:var(--muted);
+  text-transform:uppercase;
+  margin-top:6px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* ============ STUDIO / ABOUT ============ */
+.studio{ padding:60px 0 120px; }
+
+.studio-grid{ display:flex; justify-content:space-between; gap:60px; }
+
+.studio-grid h2{
+  font-size:34px;
+  line-height:1.35;
+  text-transform:uppercase;
+  max-width:560px;
+  font-weight:600;
+}
+
+.studio-right{ max-width:280px; }
+
+.studio-right p{
+  font-size:14px;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.discover{
+  font-size:12px;
+  letter-spacing:1px;
+  border-bottom:1px solid var(--ink);
+  padding-bottom:3px;
+  display:inline-block;
+}
+
+/* ============ SERVICES ============ */
+.services{ padding:40px 0 40px; }
+
+.services-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom:50px;
+}
+
+.services-head h2{ font-size:52px; font-style:italic; font-weight:500; }
+
+.arrows{ display:flex; gap:14px; }
+
+.arrow-btn{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  background:none;
+  transition:.25s;
+}
+
+.arrow-btn:hover{ border-color:var(--ink); }
+
+.service-cards-wrap{ position:relative; }
+
+.service-cards{
+  display:flex;
+  align-items:flex-start;
+  gap:30px;
+  overflow-x:auto;
+  overflow-y:visible;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  padding-bottom:0;
+  padding-top:80px;
+}
+
+.service-cards::-webkit-scrollbar{ display:none; }
+
+.service-card{
+  flex:0 0 calc((100% - 60px) / 3.3);
+  scroll-snap-align:start;
+}
+
+.service-card:nth-child(even){ margin-top:40px; }
+
+.service-card.reveal-up,
+.service-card.reveal-down,
+.service-card.in-view,
+.service-card.pre-reveal{ opacity:1; transform:none; }
+
+.service-card .ph{ height:380px; margin-bottom:18px; background-size:cover; background-position:center; }
+
+.service-card .ph::before{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:45%;
+  background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+}
+
+.service-card .ph::after{ text-shadow:0 1px 3px rgba(0,0,0,.5); }
+
+.service-card .count{ font-size:12px; color:var(--muted); margin-bottom:10px; }
+.service-card h3{
+  font-family:var(--font-heading);
+  font-style:italic;
+  font-weight:500;
+  font-size:28px;
+  line-height:1.25;
+  margin-bottom:10px;
+}
+.service-card .price{ font-size:14px; color:var(--muted); }
+
+/* ---- Swipe hint (mobile/tablet only) ---- */
+.scroll-hint{
+  display:none;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
+  margin-top:18px;
+  font-size:12px;
+  letter-spacing:.5px;
+  color:var(--muted);
+  text-transform:uppercase;
+  opacity:1;
+  transition:opacity .3s ease;
+}
+
+.scroll-hint.hidden{ opacity:0; }
+
+.scroll-hint i{
+  animation:hint-nudge 1.4s ease-in-out infinite;
+}
+
+@keyframes hint-nudge{
+  0%,100%{ transform:translateX(0); }
+  50%{ transform:translateX(6px); }
+}
+
+/* ============ QUOTE ============ */
+.quote-section{ padding:40px 0 100px; text-align:center; }
+
+.quote-mark{ font-family:var(--font-heading); font-size:60px; color:var(--muted); }
+
+blockquote{
+  font-family:var(--font-heading);
+  font-style:italic;
+  font-size:30px;
+  line-height:1.5;
+  max-width:780px;
+  margin:10px auto 24px;
+  font-weight:400;
+  transition:opacity .3s;
+}
+
+cite{
+  font-size:11px;
+  letter-spacing:1.5px;
+  color:var(--muted);
+  text-transform:uppercase; 
+  font-style:normal;
+  display:block;
+  transition:opacity .3s;
+}
+
+.quote-dots{ display:flex; justify-content:center; gap:8px; margin-top:36px; }
+
+.quote-dot{
+  width:6px;
+  height:6px;
+  padding:0;
+  border:none;
+  border-radius:50%;
+  background:var(--line);
+  cursor:pointer;
+  transition:background .3s, transform .3s;
+}
+
+.quote-dot:hover{ background:var(--muted); }
+
+.quote-dot:focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+
+.quote-dot.active{
+  background:var(--ink);
+  transform:scale(1.3);
+}
+
+/* ============ CTA ============ */
+.cta-section{
+  background:#F7F3EC;
+  padding:60px 40px;
+  text-align:center;
+}
+
+.cta-section .container{
+  max-width:720px;
+  margin:0 auto;
+  background:#1c1c1c;
+  color:#fff;
+  padding:80px 60px;
+  border-radius:20px;
+}
+
+.cta-section h2{ color:#fff; font-size:36px; font-weight:500; margin-bottom:20px; }
+
+.cta-section p{
+  max-width:520px;
+  margin:0 auto 32px;
+  color:rgba(255,255,255,.65);
+  font-size:14px;
+  line-height:1.7;
+}
+
+.cta-section .btn{
+  background:#fff;
+  color:#1c1c1c;
+  border:1px solid #fff;
+}
+
+.cta-section .btn:hover{
+  background:transparent;
+  color:#fff;
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .container{ padding:0 32px; }
+
+  .hero-top{ flex-direction:column; align-items:flex-start; }
+  .hero-top h1{ font-size:clamp(42px, 9vw, 64px); }
+
+  .gallery{ height:380px; gap:16px; margin-bottom:40px; }
+  .gallery .right-col{ gap:16px; }
+
+  .stats{ flex-wrap:nowrap; gap:14px; }
+  .stat .num{ font-size:26px; }
+  .stat .label{ font-size:9px; letter-spacing:1px; }
+
+  .studio{ padding:40px 0 80px; }
+  .studio-grid{ flex-direction:column; gap:24px; }
+  .studio-grid h2{ font-size:26px; }
+  .studio-right{ max-width:none; }
+
+  .services{ padding:30px 0 30px; }
+  .services-head h2{ font-size:40px; }
+  .service-card{ flex:0 0 calc((100% - 30px) / 2.25); }
+  .service-card .ph{ height:340px; }
+  .scroll-hint{ display:flex; }
+
+  .quote-section{ padding:30px 0 70px; }
+  blockquote{ font-size:26px; }
+
+  .cta-section{ padding:50px 24px; }
+  .cta-section .container{ max-width:560px; padding:60px 36px; }
+  .cta-section h2{ font-size:30px; }
+}
+
+@media(max-width:600px){
+  .container{ padding:0 20px; }
+
+  .hero{ padding:50px 0 40px; }
+  .hero-top h1{ font-size:clamp(38px, 11vw, 52px); }
+  .hero-copy{ max-width:none; }
+  .gallery{ margin-top:28px; height:300px; gap:12px; margin-bottom:32px; }
+  .gallery .right-col{ gap:12px; }
+
+  .stats{ flex-wrap:nowrap; gap:10px; }
+  .stat .num{ font-size:22px; }
+  .stat .label{ font-size:8px; letter-spacing:.5px; }
+
+  .header-inner .btn{
+    padding:8px 14px;
+    font-size:11px;
+  }
+
+  .studio{ padding:32px 0 60px; }
+  .studio-grid h2{ font-size:22px; }
+
+  .services{ padding:24px 0 24px; }
+  .services-head{ flex-direction:column; align-items:flex-start; gap:16px; margin-bottom:32px; }
+  .services-head h2{ font-size:34px; }
+  .service-card{ flex:0 0 78%; }
+  .service-card .ph{ height:300px; }
+  .service-card h3{ font-size:24px; }
+
+  .quote-section{ padding:24px 0 56px; }
+  blockquote{ font-size:22px; }
+  .quote-mark{ font-size:44px; }
+
+  .cta-section{ padding:0 20px; }
+  .cta-section .container{
+    max-width:100%;
+    padding:44px 24px;
+    border-radius:16px;
+  }
+  .cta-section h2{ font-size:26px; margin-bottom:14px; }
+  .cta-section p{ font-size:13px; margin-bottom:24px; }
+  .cta-section .btn{ width:100%; padding:14px; }
+}
+
+@media(max-width:340px){
+  .container{ padding:0 14px; }
+
+  .gallery{ height:240px; gap:8px; }
+  .gallery .right-col{ gap:8px; }
+  .ph::after{ font-size:9px; }
+
+  .hero-top h1{ font-size:clamp(34px, 12vw, 44px); }
+
+  .stats{ flex-wrap:nowrap; gap:6px; }
+  .stat .num{ font-size:18px; }
+  .stat .label{ font-size:7px; letter-spacing:.3px; }
+
+  .studio-grid h2{ font-size:19px; }
+
+  .services-head h2{ font-size:28px; }
+  .service-card{ flex:0 0 88%; }
+  .service-card .ph{ height:260px; }
+  .service-card h3{ font-size:20px; }
+
+  blockquote{ font-size:19px; }
+  .quote-mark{ font-size:36px; }
+
+  .cta-section .container{ padding:36px 18px; border-radius:12px; }
+  .cta-section h2{ font-size:22px; }
+  .cta-section p{ font-size:12px; }
+}
+
+
+// ==========================================================================
+// Giri Photography — Homepage interactions
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- Services carousel ---------- */
+  const services = [
+    { label: 'Wedding',        image: 'https://picsum.photos/seed/giri-wedding/700/900',   title: 'Wedding & Pre-Wedding',       price: '₹8,000' },
+    { label: 'Maternity',      image: 'https://picsum.photos/seed/giri-maternity/700/900',  title: 'Maternity Shoot',             price: '₹6,500' },
+    { label: 'House Warming',  image: 'https://picsum.photos/seed/giri-housewarming/700/900', title: 'House Warming Ceremony',    price: '₹5,000' },
+    { label: 'Portrait',       image: 'https://picsum.photos/seed/giri-portrait/700/900',   title: 'Portrait & Editorial',        price: '₹4,000' },
+    { label: 'Baby Shoot',     image: 'https://picsum.photos/seed/giri-baby/700/900',       title: 'Newborn & Baby Shoot',        price: '₹5,500' },
+    { label: 'Event Coverage', image: 'https://picsum.photos/seed/giri-event/700/900',      title: 'Event & Corporate Coverage',  price: '₹7,000' }
+  ];
+
+  const serviceCardsContainer = document.querySelector('.service-cards');
+
+  function renderServices() {
+    if (!serviceCardsContainer) return;
+    serviceCardsContainer.innerHTML = services.map((data, i) => `
+      <div class="service-card">
+        <div class="ph" style="background-image:url('${data.image}');" data-label="${data.label}"></div>
+        <div class="count">0${i + 1} / ${services.length}</div>
+        <h3>${data.title}</h3>
+        <div class="price">${data.price}</div>
+      </div>
+    `).join('');
+  }
+
+
+  renderServices();
+
+  /* ---------- Services swipe hint ---------- */
+  const scrollHint = document.querySelector('.scroll-hint');
+
+  if (serviceCardsContainer) {
+    serviceCardsContainer.addEventListener('scroll', () => {
+      if (scrollHint) scrollHint.classList.add('hidden');
+    }, { passive: true });
+  }
+
+  /* ---------- Service cards alternating reveal (odd up, even down) ---------- */
+  try {
+    const serviceCardEls = document.querySelectorAll('.service-card');
+
+    if ('IntersectionObserver' in window && serviceCardEls.length) {
+      // Only hide cards once we know we can reveal them again — keeps
+      // the section visible by default if anything below throws.
+      serviceCardEls.forEach((card, i) => {
+        card.classList.add('pre-reveal', i % 2 === 0 ? 'reveal-up' : 'reveal-down');
+      });
+
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            entry.target.classList.remove('pre-reveal');
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      serviceCardEls.forEach(card => cardObserver.observe(card));
+    }
+    // If IntersectionObserver isn't supported, cards stay in their
+    // normal, fully visible state — no fallback class needed.
+  } catch (err) {
+    console.error('Service card reveal animation failed:', err);
+  }
+
+  /* ---------- Quote carousel ---------- */
+  const quotes = [
+    { text: 'The studio has a unique ability to capture the soul of a garment. Their work isn\u2019t just photography; it\u2019s high art that communicates prestige and quiet luxury.', cite: 'Creative Director, Vogue' },
+    { text: 'Every frame felt intentional. It didn\u2019t just document our wedding day, it told the story we\u2019ll want to remember in twenty years.', cite: 'Priya & Arjun, Clients' },
+    { text: 'Working with this team on our editorial shoot was effortless. They understood the brief instantly and elevated it further.', cite: 'Art Director, Elle India' }
+  ];
+
+  let quoteIndex = 0;
+  const quoteEl = document.querySelector('.quote-section blockquote');
+  const citeEl = document.querySelector('.quote-section cite');
+  const dotsEl = document.querySelector('.quote-section .quote-dots');
+  const QUOTE_INTERVAL = 2500; // ms between auto-advances
+  const QUOTE_FADE = 350;      // ms fade duration, keep in sync with CSS transition
+
+  function renderDots() {
+    if (!dotsEl) return;
+    dotsEl.innerHTML = quotes.map((_, i) =>
+      `<button type="button" class="quote-dot${i === quoteIndex ? ' active' : ''}" aria-label="Show testimonial ${i + 1} of ${quotes.length}" data-index="${i}"></button>`
+    ).join('');
+  }
+
+  function renderQuote() {
+    if (!quoteEl || !citeEl) return;
+    quoteEl.style.opacity = 0;
+    citeEl.style.opacity = 0;
+    setTimeout(() => {
+      quoteEl.textContent = `\u201C${quotes[quoteIndex].text}\u201D`;
+      citeEl.textContent = `\u2014 ${quotes[quoteIndex].cite}`;
+      quoteEl.style.opacity = 1;
+      citeEl.style.opacity = 1;
+      renderDots();
+    }, QUOTE_FADE);
+  }
+
+  function advanceQuote() {
+    quoteIndex = (quoteIndex + 1) % quotes.length;
+    renderQuote();
+  }
+
+  if (quoteEl && citeEl && quotes.length > 1) {
+    renderDots();
+
+    let quoteTimer = setInterval(advanceQuote, QUOTE_INTERVAL);
+
+    function restartQuoteTimer() {
+      clearInterval(quoteTimer);
+      quoteTimer = setInterval(advanceQuote, QUOTE_INTERVAL);
+    }
+
+    if (dotsEl) {
+      dotsEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.quote-dot');
+        if (!btn) return;
+        const i = Number(btn.dataset.index);
+        if (i === quoteIndex) return;
+        quoteIndex = i;
+        renderQuote();
+        restartQuoteTimer();
+      });
+    }
+
+    // Pause the slow rotation while the user's attention is on the section,
+    // resume once they scroll away, so it doesn't fight with reading.
+    const quoteSection = document.querySelector('.quote-section');
+    if (quoteSection && 'IntersectionObserver' in window) {
+      const quoteVisibility = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          clearInterval(quoteTimer);
+          if (entry.isIntersecting) {
+            quoteTimer = setInterval(advanceQuote, QUOTE_INTERVAL);
+          }
+        });
+      }, { threshold: 0.4 });
+      quoteVisibility.observe(quoteSection);
+    }
+  }
+
+  /* ---------- Smooth-reveal on scroll ---------- */
+  const revealTargets = document.querySelectorAll('.studio, .services, .quote-section, .cta-section');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealTargets.forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
+    });
+  }
+
+});  ======== -->

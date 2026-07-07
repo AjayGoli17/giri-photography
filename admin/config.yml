@@ -1,0 +1,137 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where the CMS commits uploaded images to in your repo
+media_folder: "service"
+public_folder: "/service"
+
+collections:
+
+  # ------------------------------------------------------------------
+  # PHOTO CATEGORIES — one file per category, each holding an ordered
+  # list of images. portfolio.js fetches these at runtime to build
+  # both the category cover thumbnail and the 10-photo gallery grid.
+  # ------------------------------------------------------------------
+  - name: "portfolio"
+    label: "Photo Categories"
+    files:
+      - name: "weddings"
+        label: "Weddings"
+        file: "data/portfolio/weddings.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "pre-wedding"
+        label: "Pre-Wedding"
+        file: "data/portfolio/pre-wedding.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "engagement"
+        label: "Engagement"
+        file: "data/portfolio/engagement.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "haldi"
+        label: "Haldi"
+        file: "data/portfolio/haldi.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "birthdays"
+        label: "Birthdays"
+        file: "data/portfolio/birthdays.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "dhoti-ceremony"
+        label: "Dhoti Ceremony"
+        file: "data/portfolio/dhoti-ceremony.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "saree-ceremony"
+        label: "Saree Ceremony"
+        file: "data/portfolio/saree-ceremony.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "newborn"
+        label: "Newborn"
+        file: "data/portfolio/newborn.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "maternity"
+        label: "Maternity"
+        file: "data/portfolio/maternity.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+      - name: "solo-portraits"
+        label: "Solo Portraits"
+        file: "data/portfolio/solo-portraits.json"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string" }
+          - label: "Photos"
+            name: "images"
+            widget: "list"
+            field: { label: "Photo", name: "src", widget: "image" }
+
+  # ------------------------------------------------------------------
+  # SERVICE PRICING — a single file holding every service's price.
+  # service.js reads this to fill in the ₹ amounts on service.html.
+  # ------------------------------------------------------------------
+  - name: "services"
+    label: "Service Pricing"
+    files:
+      - name: "services"
+        label: "Services"
+        file: "data/services.json"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: "{{name}} — ₹{{price}}"
+            fields:
+              - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+              - { label: "Service Name", name: "name", widget: "string" }
+              - { label: "Price (₹)", name: "price", widget: "number", value_type: "int" }

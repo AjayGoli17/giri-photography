@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giri Photography</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fdf8f3;
+    --pink-bg:#fbe9e2;
+    --gold:#9a7b2f;
+    --gold-dark:#7a6224;
+    --dark:#1c1c1a;
+    --text-gray:#6b6b66;
+    --border:#e7e0d8;
+    --ivory:#f7f2ea;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Poppins',sans-serif;
+    color:var(--dark);
+    background:var(--cream);
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Playfair Display',serif;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+
+  /* HEADER */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px clamp(16px,4vw,60px);
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:relative;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo svg{width:32px;height:32px;flex-shrink:0;}
+  .logo-text{
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:1px;
+    line-height:1.4;
+  }
+  nav{
+    display:flex;
+    gap:clamp(16px,3vw,36px);
+    font-size:14px;
+    color:#444;
+  }
+  nav a{position:relative;padding-bottom:4px;}
+  nav a.active{color:var(--dark);font-weight:500;}
+  nav a.active::after{
+    content:'';
+    position:absolute;
+    left:0;right:0;bottom:-18px;
+    height:2px;
+    background:var(--dark);
+  }
+  .book-btn{
+    background:var(--dark);
+    color:#fff;
+    padding:12px 20px;
+    font-size:13px;
+    border-radius:4px;
+    letter-spacing:.3px;
+    white-space:nowrap;
+  }
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:6px;
+  }
+  .menu-toggle span{
+    width:24px;height:2px;background:var(--dark);display:block;
+  }
+
+  /* HERO */
+  .hero{
+    text-align:center;
+    padding:clamp(50px,8vw,80px) 20px 30px;
+  }
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:2px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(30px,5.5vw,48px);
+    line-height:1.2;
+    font-weight:700;
+    color:#1c1c1a;
+  }
+  .hero h1 .gold-line{
+    color:var(--gold);
+    display:block;
+  }
+  .hero p{
+    max-width:640px;
+    margin:24px auto 0;
+    color:var(--text-gray);
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  /* FORM CARD */
+  .card-wrap{
+    display:flex;
+    justify-content:center;
+    padding:20px clamp(16px,4vw,60px) 100px;
+  }
+  .card{
+    background:#fff;
+    max-width:1100px;
+    width:100%;
+    border-radius:6px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.08);
+    padding:clamp(24px,5vw,50px);
+    display:flex;
+    gap:clamp(24px,5vw,50px);
+    flex-wrap:wrap;
+  }
+  .card-left{
+    flex:1 1 280px;
+    border-right:1px solid var(--border);
+    padding-right:clamp(0px,4vw,40px);
+    min-width:240px;
+  }
+  .card-left h3{
+    font-size:22px;
+    color:var(--gold-dark);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+  .card-left > p{
+    color:var(--text-gray);
+    font-size:13.5px;
+    line-height:1.7;
+    margin-bottom:24px;
+  }
+  .info-row{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:14px;
+    font-size:13.5px;
+  }
+  .info-icon{
+    width:28px;height:28px;
+    border-radius:50%;
+    background:var(--ivory);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    color:var(--gold-dark);
+  }
+  .hours-title{
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--text-gray);
+    margin:24px 0 12px;
+    font-weight:600;
+  }
+  .hours-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:13.5px;
+    margin-bottom:6px;
+    color:#3a3a38;
+  }
+  .gallery-title{
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--text-gray);
+    margin:24px 0 12px;
+    font-weight:600;
+  }
+  .gallery-imgs{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .gallery-imgs div{
+    width:90px;height:90px;
+    border-radius:6px;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .gallery-imgs div img{width:100%;height:100%;object-fit:cover;}
+
+  .card-right{
+    flex:1 1 280px;
+    min-width:240px;
+  }
+  .field{
+    margin-bottom:18px;
+  }
+  .field label{
+    display:block;
+    font-size:12.5px;
+    color:#8a8a84;
+    margin-bottom:8px;
+  }
+  .field.event-date label{
+    color:var(--gold-dark);
+    font-weight:500;
+  }
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    border:none;
+    border-bottom:1px solid var(--border);
+    padding:6px 0 10px;
+    font-family:'Poppins',sans-serif;
+    font-size:16px;
+    color:#222;
+    background:transparent;
+    outline:none;
+  }
+  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;font-size:14px;}
+  .select-wrap{position:relative;}
+  .select-wrap::after{
+    content:'⌄';
+    position:absolute;
+    right:0;top:0;
+    font-size:16px;
+    color:#999;
+  }
+  .field textarea{resize:none;height:40px;}
+  .submit-btn{
+    width:100%;
+    background:var(--gold-dark);
+    color:#fff;
+    border:none;
+    padding:16px;
+    border-radius:4px;
+    font-size:13px;
+    letter-spacing:1.5px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:10px;
+    transition:background .2s;
+  }
+  .submit-btn:hover{background:#5f4c1c;}
+
+  /* LOCATION SECTION */
+  .location-section{
+    text-align:center;
+    padding:0 20px 30px;
+  }
+  .location-section h2{
+    font-size:clamp(26px,4vw,32px);
+    margin-top:10px;
+    font-weight:700;
+  }
+  .location-content{
+    display:flex;
+    gap:40px;
+    max-width:1280px;
+    margin:50px auto 0;
+    padding:0 16px 100px;
+    align-items:stretch;
+    flex-wrap:wrap;
+  }
+  .map-box{
+    flex:1 1 320px;
+    background:var(--ivory);
+    border-radius:10px;
+    min-height:320px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:#b9ad9a;
+    gap:10px;
+    padding:20px;
+  }
+  .map-box .pin{font-size:22px;color:var(--gold);}
+  .map-box .addr{font-size:13px;color:#a89c87;text-align:center;line-height:1.6;}
+
+  .find-us{
+    flex:1 1 280px;
+    text-align:left;
+    padding-top:10px;
+  }
+  .find-us h3{
+    color:var(--gold-dark);
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .find-us > p{
+    color:var(--text-gray);
+    font-size:13.5px;
+    line-height:1.8;
+    margin-bottom:24px;
+  }
+  .feature-row{
+    display:flex;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .feature-icon{
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--ivory);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    color:var(--gold-dark);
+    font-size:13px;
+  }
+  .feature-text strong{
+    display:block;
+    font-size:11px;
+    letter-spacing:1px;
+    color:#3a3a38;
+    margin-bottom:3px;
+  }
+  .feature-text span{
+    font-size:13px;
+    color:var(--text-gray);
+  }
+  .directions-btn{
+    margin-top:14px;
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold-dark);
+    padding:11px 24px;
+    border-radius:4px;
+    font-size:12.5px;
+    font-weight:500;
+    letter-spacing:.3px;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--pink-bg);
+    padding:60px clamp(20px,5vw,60px) 30px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .footer-brand{
+    flex:1 1 220px;
+  }
+  .footer-brand h3{
+    font-size:20px;
+    margin-bottom:14px;
+    font-weight:700;
+  }
+  .footer-brand p{
+    font-size:13px;
+    color:#6b6259;
+    line-height:1.7;
+    max-width:230px;
+    margin-bottom:20px;
+  }
+  .social-icons{
+    display:flex;
+    gap:10px;
+  }
+  .social-icons span{
+    width:32px;height:32px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+  }
+  .footer-col{
+    flex:1 1 140px;
+  }
+  .footer-col h4{
+    font-size:13px;
+    margin-bottom:18px;
+    font-weight:600;
+    color:#2a2a28;
+  }
+  .footer-col a{
+    display:block;
+    font-size:13px;
+    color:#6b6259;
+    margin-bottom:12px;
+  }
+  .footer-visit{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    max-width:280px;
+    flex:1 1 240px;
+    width:100%;
+  }
+  .visit-row{
+    display:flex;
+    gap:10px;
+    font-size:13px;
+    color:#3a3a38;
+    margin-bottom:12px;
+    align-items:flex-start;
+  }
+  .visit-row span.icon{color:var(--gold-dark);}
+  .get-directions-dark{
+    display:inline-block;
+    background:#13231f;
+    color:#fff;
+    padding:10px 18px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.5px;
+    margin-top:4px;
+  }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    max-width:1200px;
+    margin:50px auto 0;
+    padding-top:25px;
+    border-top:1px solid rgba(0,0,0,0.08);
+    font-size:12px;
+    color:#6b6259;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .footer-bottom .links{display:flex;gap:24px;flex-wrap:wrap;}
+
+  /* TABLET */
+  @media(max-width:900px){
+    .card{flex-direction:column;}
+    .card-left{border-right:none;border-bottom:1px solid var(--border);padding-right:0;padding-bottom:30px;}
+    .location-content{flex-direction:column;}
+  }
+
+  /* MOBILE NAV */
+  @media(max-width:768px){
+    nav{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      right:0;
+      background:#fff;
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 10px 20px rgba(0,0,0,0.06);
+      z-index:20;
+    }
+    nav.open{display:flex;}
+    nav a{
+      padding:16px 24px;
+      width:100%;
+    }
+    nav a.active::after{display:none;}
+    nav a.active{background:var(--ivory);}
+    .menu-toggle{display:flex;}
+    .book-btn{order:2;}
+    .menu-toggle{order:3;}
+  }
+
+  @media(max-width:600px){
+    header{padding:14px 16px;}
+    .book-btn{padding:10px 16px;font-size:12px;}
+    .hero{padding:40px 16px 36px;}
+    .hero p{font-size:14px;}
+    .card-wrap{padding:30px 12px 60px;}
+    .card{padding:24px;border-radius:8px;}
+    .gallery-imgs div{width:80px;height:80px;}
+    .location-section{padding:0 16px 20px;}
+    .location-content{margin-top:30px;padding:0 12px 60px;gap:30px;}
+    footer{padding:40px 18px 24px;}
+    .footer-top{gap:30px;}
+    .footer-visit{max-width:100%;}
+    .footer-bottom{flex-direction:column;align-items:flex-start;}
+  }
+
+  @media(max-width:380px){
+    .hero h1{font-size:26px;}
+    .gallery-imgs div{width:70px;height:70px;}
+  }
+
+  /* CALL FLOATING BUTTON */
+  .call-float{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:58px;
+    height:58px;
+    background:var(--dark);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    z-index:50;
+    transition:transform .2s;
+  }
+  .call-float:hover{transform:scale(1.08);}
+  .call-float svg{width:26px;height:26px;}
+
+  @media(max-width:600px){
+    .call-float{
+      width:50px;
+      height:50px;
+      bottom:16px;
+      right:16px;
+    }
+    .call-float svg{width:22px;height:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="22" r="9" stroke="#1c1c1a" stroke-width="2"/>
+      <circle cx="20" cy="22" r="3" stroke="#1c1c1a" stroke-width="1.5"/>
+      <path d="M10 14 Q14 8 22 9" stroke="#1c1c1a" stroke-width="1.5" fill="none"/>
+      <path d="M30 12 Q40 12 38 24" stroke="#1c1c1a" stroke-width="1.5" fill="none"/>
+    </svg>
+    <div class="logo-text">GIRI<br>PHOTOGRAPHY</div>
+  </div>
+  <nav id="mainNav">
+    <a href="#" class="active">Home</a>
+    <a href="#">Portfolio</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
+  <a href="#book" class="book-btn">Book a Shoot</a>
+  <button class="menu-toggle" aria-label="Toggle menu" onclick="document.getElementById('mainNav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">RESERVATION &amp; INQUIRIES</div>
+  <h1>Capture Your Legacy in<span class="gold-line">Golden Light</span></h1>
+  <p>Bespoke luxury photography for those who value the art of the moment. We invite you to fill out the form below to begin your creative journey with us.</p>
+</section>
+
+<div class="card-wrap" id="book">
+  <div class="card">
+    <div class="card-left">
+      <h3>Giri Photography</h3>
+      <p>Experience a private consultation in our flagship Ivory &amp; Gold studio gallery.</p>
+
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>1200 Avenue of Arts, Studio 4B</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>+1 (555) 800-GOLD</div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">✉️</div>
+        <div>curate@bookyourshoot.com</div>
+      </div>
+
+      <div class="hours-title">STUDIO HOURS</div>
+      <div class="hours-row"><span>Mon - Fri</span><span>09:00 - 18:00</span></div>
+      <div class="hours-row"><span>Saturday</span><span>10:00 - 16:00</span></div>
+      <div class="hours-row"><span>Sunday</span><span>By Appointment</span></div>
+
+      <div class="gallery-title">GALLERY PREVIEW</div>
+      <div class="gallery-imgs">
+        <div><img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=200&q=80" alt="studio interior"></div>
+        <div><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=200&q=80" alt="camera lens"></div>
+      </div>
+    </div>
+
+    <div class="card-right">
+      <form id="bookingForm" onsubmit="sendToWhatsApp(event)">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="fullName" placeholder="">
+        </div>
+        <div class="field">
+          <label>Phone Number</label>
+          <input type="tel" id="phoneNumber" placeholder="">
+        </div>
+        <div class="field select-wrap">
+          <label>Service</label>
+          <select id="serviceType">
+            <option></option>
+            <option>Portrait Session</option>
+            <option>Wedding Photography</option>
+            <option>Editorial Shoot</option>
+            <option>Commercial</option>
+          </select>
+        </div>
+        <div class="field event-date">
+          <label>Event Date</label>
+          <input type="text" id="eventDate" placeholder="mm/dd/yyyy" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
+        </div>
+        <div class="field">
+          <label>Location</label>
+          <input type="text" id="eventLocation" placeholder="">
+        </div>
+        <div class="field">
+          <label>Message</label>
+          <textarea id="messageBox"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">BOOK YOUR SHOOT</button>
+      </form>
+      <p style="text-align:center;font-size:12px;color:#8a8a84;margin-top:14px;">
+        Submitting will open WhatsApp with your details pre-filled.
+      </p>
+    </div>
+  </div>
+</div>
+
+<section class="location-section">
+  <div class="eyebrow">LOCATION</div>
+  <h2>Visit Our Studio</h2>
+</section>
+
+<div class="location-content">
+  <div class="map-box">
+    <div class="pin">📍</div>
+    <div class="addr">1200 Avenue of Arts<br>Studio 4B, Creative District</div>
+  </div>
+  <div class="find-us">
+    <h3>Find Us</h3>
+    <p>Located in the heart of the city's artistic quarter, our studio is a sanctuary of light and luxury. We recommend booking an appointment for a private tour of our gallery.</p>
+
+    <div class="feature-row">
+      <div class="feature-icon">🅿️</div>
+      <div class="feature-text">
+        <strong>PARKING</strong>
+        <span>Valet parking available at the main entrance.</span>
+      </div>
+    </div>
+    <div class="feature-row">
+      <div class="feature-icon">🚇</div>
+      <div class="feature-text">
+        <strong>TRANSIT</strong>
+        <span>Two blocks from the Arts District Metro Station.</span>
+      </div>
+    </div>
+    <a href="#" class="directions-btn">Get Directions</a>
+  </div>
+</div>
+
+<a href="tel:+919848403872" class="call-float" aria-label="Call the studio">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2Z"/>
+  </svg>
+</a>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Giri Photography</h3>
+      <p>A warm, caring place where children from nursery to grade 7 learn, play and grow with confidence.</p>
+      <div class="social-icons">
+        <span>f</span><span>◎</span><span>✉</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>QUICK LINKS</h4>
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">Academics</a>
+      <a href="#">Admissions</a>
+    </div>
+    <div class="footer-col">
+      <h4>SCHOOL INFO</h4>
+      <a href="#">Notice board</a>
+      <a href="#">Gallery</a>
+      <a href="#">Faculty</a>
+      <a href="#">Privacy policy</a>
+    </div>
+    <div class="footer-visit">
+      <h4 style="margin-bottom:14px;">VISIT US</h4>
+      <div class="visit-row"><span class="icon">📍</span><span>8-2-124, Gandhinagar, Sircilla – 505301</span></div>
+      <div class="visit-row"><span class="icon">📞</span><span>+91 9499604605</span></div>
+      <div class="visit-row"><span class="icon">🕒</span><span>Mon-Sat, 8.30 AM - 4.30 PM</span></div>
+      <a href="#" class="get-directions-dark">GET DIRECTIONS</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 GIRI PHOTOGRAPHY. ALL RIGHTS RESERVED.</div>
+    <div class="links">
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">TERMS OF SERVICE</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function sendToWhatsApp(event){
+    event.preventDefault();
+
+    const name = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phoneNumber').value.trim();
+    const service = document.getElementById('serviceType').value.trim();
+    const date = document.getElementById('eventDate').value.trim();
+    const location = document.getElementById('eventLocation').value.trim();
+    const message = document.getElementById('messageBox').value.trim();
+
+    if(!name || !phone){
+      alert('Please enter at least your name and phone number.');
+      return;
+    }
+
+    const studioNumber = '919848403872'; // WhatsApp number with country code, no spaces or symbols
+
+    let text = `Hello Giri Photography, I'd like to book a shoot.%0A%0A`;
+    text += `*Name:* ${name}%0A`;
+    text += `*Phone:* ${phone}%0A`;
+    if(service) text += `*Service:* ${service}%0A`;
+    if(date) text += `*Event Date:* ${date}%0A`;
+    if(location) text += `*Location:* ${location}%0A`;
+    if(message) text += `*Message:* ${message}%0A`;
+
+    const waUrl = `https://wa.me/${studioNumber}?text=${encodeURIComponent(text.replace(/%0A/g,'\n'))}`;
+    window.open(waUrl, '_blank');
+  }
+</script>
+
+</body>
+</html>

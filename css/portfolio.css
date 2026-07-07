@@ -1,0 +1,937 @@
+/* ==========================================================================
+   Giri Photography — Portfolio Page (page-specific only)
+   Global look (fonts, colors, header/nav/footer/buttons) lives in style.css.
+   This file only contains: gallery grid, cinematic reel, CTA section,
+   plus the animation pass described below.
+   ========================================================================== */
+
+   :root{
+    /* Page-only accent used for cinematic category labels */
+    --accent-khaki:#9c8350;
+  }
+
+  /* ============ PAGE LOAD FADE-IN (18) ============ */
+  body{
+    opacity:0;
+    transition:opacity .5s ease;
+  }
+  body.page-loaded{ opacity:1; }
+
+  /* ============ GALLERY HEAD ============ */
+  .gallery-head{ padding:60px 0 40px; }
+
+  .gallery-head-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    flex-wrap:wrap;
+  }
+
+  .gallery-head-top h1{ font-size:62px; font-style:italic; }
+
+  .gallery-head-top p{
+    max-width:300px;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.7;
+  }
+
+  /* ============ CATEGORY GRID (click a category to expand its 10-photo gallery below) ============
+     Desktop: 5 alternating editorial rows, each a large + small tile pair,
+     with the small tile offset down for a staggered, magazine-style feel.
+     Tablet/mobile: collapses to a simple even grid (staggering doesn't
+     read well at narrow widths). */
+  .category-grid{
+    padding-bottom:80px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+  }
+
+  .category-row{
+    display:grid;
+    grid-template-columns:minmax(0,3fr) minmax(0,2fr);
+    align-items:start;
+    gap:20px;
+  }
+
+  .category-row.reverse{ grid-template-columns:minmax(0,2fr) minmax(0,3fr); }
+  .category-row.reverse .cat-large{ grid-column:2; grid-row:1; }
+  .category-row.reverse .cat-small{ grid-column:1; grid-row:1; }
+
+  .cat-card{
+    display:block;
+    width:100%;
+    background:none;
+    border:none;
+    padding:0;
+    margin:0;
+    text-align:left;
+    font:inherit;
+    color:inherit;
+    cursor:pointer;
+    transition:transform .15s ease;
+  }
+
+  /* Tap/press feedback — hover effects (image zoom, arrow nudge) never
+     fire on a touchscreen, so touch needs its own instant response:
+     a quick scale-down the moment a finger touches the tile confirms
+     "this registered as tappable" before the page even navigates. */
+  .cat-card:active{ transform:scale(.97); }
+
+  .cat-large .ph{ aspect-ratio:1.5/1; border-radius:4px; }
+  .cat-small .ph{ aspect-ratio:1/1; border-radius:4px; }
+  .cat-small{ margin-top:36px; }
+
+  /* These photos are portrait-oriented, so cover-fitting them into the
+     landscape/square tile boxes was cropping too tight and cutting off
+     the subject. Each photo's subject sits at a different point in the
+     frame, so the crop bias needed is different per photo — not one
+     shared rule. Maternity and Saree Ceremony's source photos both have
+     the subject in the lower half of the frame with a lot of empty sky
+     above, so bias those two toward the bottom instead of the top. */
+  .cat-card[data-category="birthdays"] .ph img,
+  .cat-card[data-category="solo-portraits"] .ph img{
+    object-position:center 20%;
+  }
+
+  .cat-card[data-category="saree-ceremony"] .ph img,
+  .cat-card[data-category="maternity"] .ph img{
+    object-position:center 80%;
+  }
+
+  .cat-card .ph::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(10,10,9,.65), rgba(10,10,9,0) 55%);
+    opacity:.75;
+    transition:opacity .35s ease;
+  }
+
+  .cat-card:hover .ph::after,
+  .cat-card:focus-visible .ph::after{ opacity:.9; }
+
+  .cat-card .cat-name{
+    position:absolute;
+    left:16px;
+    bottom:14px;
+    z-index:1;
+    color:#fff;
+    font-size:13px;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    text-shadow:0 1px 4px rgba(0,0,0,.4);
+  }
+
+  /* "View Gallery" affordance — makes it clear these tiles are clickable
+     entry points into a photo gallery, not just static images. Sits
+     top-right as its own pill badge so it doesn't compete with the
+     category name (bottom-left) or the gradient overlay (strongest at
+     the bottom). Visible by default (not hover-only) since mobile has
+     no hover state and would otherwise give no hint that tapping does
+     anything; the pill's own background keeps it legible over any photo. */
+  .cat-card .cat-view{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    background:rgba(10,10,9,.55);
+    color:rgba(255,255,255,.95);
+    font-size:10.5px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    padding:6px 11px;
+    border-radius:999px;
+    backdrop-filter:blur(2px);
+    opacity:.9;
+    transition:opacity .25s ease, background-color .25s ease;
+  }
+
+  .cat-card:hover .cat-view,
+  .cat-card:focus-visible .cat-view{
+    opacity:1;
+    background:rgba(10,10,9,.75);
+  }
+
+  /* One-time gentle pulse the first time each tile scrolls into view —
+     since there's no hover on touch to reveal the badge is interactive,
+     this draws the eye to it once, then settles rather than looping. */
+  .cat-card.is-visible .cat-view{
+    animation:catViewPulse 1s ease .5s 1;
+  }
+
+  @keyframes catViewPulse{
+    0%   { box-shadow:0 0 0 0 rgba(255,255,255,.5); }
+    70%  { box-shadow:0 0 0 9px rgba(255,255,255,0); }
+    100% { box-shadow:0 0 0 0 rgba(255,255,255,0); }
+  }
+
+  @media(max-width:600px){
+    .cat-card .cat-view{ font-size:9.5px; top:10px; right:10px; padding:5px 9px; }
+    .cat-card .cat-view svg{ width:11px; height:11px; }
+  }
+
+  .category-row:nth-child(2) .cat-card{ transition-delay:.05s; }
+  .category-row:nth-child(3) .cat-card{ transition-delay:.1s; }
+  .category-row:nth-child(4) .cat-card{ transition-delay:.15s; }
+  .category-row:nth-child(5) .cat-card{ transition-delay:.2s; }
+
+  @media(max-width:900px){
+    .category-row,
+    .category-row.reverse{ gap:14px; }
+    .cat-small{ margin-top:24px; }
+    .category-grid{ gap:20px; }
+  }
+
+  @media(max-width:600px){
+    .category-row,
+    .category-row.reverse{ gap:10px; }
+    .cat-small{ margin-top:16px; }
+    .category-grid{ gap:16px; padding-bottom:56px; }
+    .cat-card .cat-name{ font-size:11px; left:12px; bottom:10px; }
+
+    /* Tighter stagger on mobile — people scroll faster on phones than
+       they linger on desktop, so the desktop cascade timings above
+       (.05s-.2s) can feel sluggish when several rows are already in
+       view at once. */
+    .category-row:nth-child(2) .cat-card{ transition-delay:.02s; }
+    .category-row:nth-child(3) .cat-card{ transition-delay:.04s; }
+    .category-row:nth-child(4) .cat-card{ transition-delay:.06s; }
+    .category-row:nth-child(5) .cat-card{ transition-delay:.08s; }
+    .cine-grid .cine-card:nth-child(2){ transition-delay:.04s; }
+    .cine-grid .cine-card:nth-child(3){ transition-delay:.08s; }
+    .reveal-delay-1{ transition-delay:.06s; }
+    .reveal-delay-2{ transition-delay:.12s; }
+    .reveal-delay-3{ transition-delay:.18s; }
+    .reveal-delay-4{ transition-delay:.24s; }
+  }
+
+  /* ============ CATEGORY GALLERY (swaps in for the category grid) ============ */
+  #catGridSection{
+    padding-top:40px;
+    padding-bottom:80px;
+    transition:opacity .3s ease;
+  }
+
+  #catGridSection.is-hidden{ display:none; }
+
+  .cat-gallery{
+    padding-top:40px;
+    padding-bottom:80px;
+    opacity:0;
+    transform:translateY(12px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+
+  .cat-gallery:not(.is-open){ display:none; }
+
+  .cat-gallery.is-open{ opacity:1; transform:none; }
+
+  .cat-gallery-back{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#fbf8f2;
+    border:1px solid rgba(20,18,12,.08);
+    cursor:pointer;
+    color:inherit;
+    font:inherit;
+    font-size:13px;
+    letter-spacing:.4px;
+    text-transform:uppercase;
+    padding:12px 20px;
+    border-radius:999px;
+    box-shadow:0 6px 20px rgba(20,18,12,.1);
+    margin:16px 0 28px;
+    opacity:.9;
+    transition:opacity .2s ease, box-shadow .2s ease;
+    position:sticky;
+    top:16px;
+    z-index:5;
+  }
+
+  .cat-gallery-back:hover,
+  .cat-gallery-back:focus-visible{ opacity:1; box-shadow:0 8px 24px rgba(20,18,12,.14); }
+
+  .cat-gallery-head{
+    margin-bottom:24px;
+  }
+
+  .cat-gallery-head h3{ font-size:26px; font-style:italic; }
+
+  .gallery-loading{
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    opacity: 0.6;
+    font-size: 0.95rem;
+  }
+
+  .cat-gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(5, minmax(0, 1fr));
+    gap:20px;
+  }
+
+  .cat-gallery-grid .tile{ position:relative; }
+
+  /* Same alternating large/small rhythm as the category grid above:
+     each pair of rows mirrors itself, so tiles land large-left/small-right
+     then small-left/large-right, repeating down the grid. Using a 5-column
+     track with span-3 (large) / span-2 (small) — rather than a fixed
+     3fr/2fr two-column grid — lets the wide tile fall on alternating
+     sides each row instead of always sitting in the same column. */
+  .cat-gallery-grid .tile:nth-child(4n+1),
+  .cat-gallery-grid .tile:nth-child(4n){
+    grid-column:span 3;
+  }
+  .cat-gallery-grid .tile:nth-child(4n+1) .ph,
+  .cat-gallery-grid .tile:nth-child(4n) .ph{
+    aspect-ratio:1.5/1;
+    border-radius:4px;
+  }
+
+  .cat-gallery-grid .tile:nth-child(4n+2),
+  .cat-gallery-grid .tile:nth-child(4n+3){
+    grid-column:span 2;
+    margin-top:36px;
+  }
+  .cat-gallery-grid .tile:nth-child(4n+2) .ph,
+  .cat-gallery-grid .tile:nth-child(4n+3) .ph{
+    aspect-ratio:1/1;
+    border-radius:4px;
+  }
+
+  @media(max-width:900px){
+    .cat-gallery-grid{ gap:14px; }
+    .cat-gallery-grid .tile:nth-child(4n+2),
+    .cat-gallery-grid .tile:nth-child(4n+3){ margin-top:24px; }
+  }
+
+  @media(max-width:600px){
+    .cat-gallery-head h3{ font-size:20px; }
+    .cat-gallery-grid{ gap:10px; }
+    .cat-gallery-grid .tile:nth-child(4n+2),
+    .cat-gallery-grid .tile:nth-child(4n+3){ margin-top:16px; }
+  }
+
+  .cat-gallery-next{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    margin-top:40px;
+    padding:22px;
+    background:none;
+    border:1px solid var(--border, #d8d3c4);
+    border-radius:8px;
+    cursor:pointer;
+    color:inherit;
+    font:inherit;
+    font-size:14px;
+    letter-spacing:.4px;
+    text-transform:uppercase;
+    transition:background-color .25s ease, border-color .25s ease;
+  }
+
+  .cat-gallery-next span{ font-style:italic; }
+
+  .cat-gallery-next:hover,
+  .cat-gallery-next:focus-visible{
+    background:rgba(0,0,0,.03);
+    border-color:var(--accent-khaki, #9c8350);
+  }
+
+  @media(max-width:600px){
+    .cat-gallery-next{ margin-top:28px; padding:18px; font-size:12px; }
+  }
+
+  .tile{ position:relative; transition:transform .15s ease; }
+
+  .tile:active{ transform:scale(.97); }
+
+  .tile .ph{
+    width:100%;
+    background:#cfcabd;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* Placeholder shimmer — mobile networks are often slower than desktop
+     wifi, so there's a real beat of empty tiles before photos pop in.
+     A soft sweep makes that wait read as intentional loading rather
+     than broken. Stops the moment the real photo has loaded (ph-loaded,
+     added alongside img-loaded in portfolio.js). */
+  .tile .ph:not(.ph-loaded){
+    background-image:linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 70%);
+    background-size:200% 100%;
+    animation:phShimmer 1.6s ease-in-out infinite;
+  }
+
+  @keyframes phShimmer{
+    0%{ background-position:200% 0; }
+    100%{ background-position:-200% 0; }
+  }
+
+  /* Image zoom on hover (1) + image load fade-in (4), combined transition.
+     The load-in pairs opacity with a subtle scale (.97 -> 1) for a
+     photographic "settle" feel, especially visible on crisp phone/tablet
+     screens; hover zoom (1.06) still layers on top afterwards. */
+  .tile .ph img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0;
+    transform:scale(.97);
+    transition:opacity .6s ease, transform .6s cubic-bezier(.16,1,.3,1);
+  }
+
+  .tile .ph img.img-loaded{ opacity:1; transform:scale(1); }
+
+  .tile:hover .ph img,
+  .tile:focus-within .ph img{ transform:scale(1.06); }
+
+  .tile .cap{
+    margin-top:10px;
+    font-size:10.5px;
+    letter-spacing:1.2px;
+    color:var(--muted);
+    text-transform:uppercase;
+  }
+
+  /* Caption slide-up + fade-in on hover (2) */
+  .tile.overlay .cap{
+    position:absolute;
+    left:14px;
+    bottom:14px;
+    margin:0;
+    color:rgba(255,255,255,.85);
+    text-shadow:0 1px 4px rgba(0,0,0,.4);
+    opacity:.85;
+    transform:translateY(8px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+
+  .tile.overlay:hover .cap,
+  .tile.overlay:focus-within .cap{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* Tile aspect ratios */
+  .h-tall{ aspect-ratio:1.23/1; }
+  .h-mid{ aspect-ratio:0.755/1; }
+  .h-short{ aspect-ratio:1.08/1; }
+  .h-deep{ aspect-ratio:0.8/1; }
+  .h-narrow{ aspect-ratio:1.19/1; }
+  .h-wide{ aspect-ratio:1.51/1; }
+
+  /* ============ SCROLL REVEAL ============ */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* Reusable stagger delays for standalone headings/paragraphs (added on
+     top of the base .reveal fade-up) so text elements in the same block
+     cascade in one after another instead of arriving all at once. */
+  .reveal-delay-1{ transition-delay:.12s; }
+  .reveal-delay-2{ transition-delay:.24s; }
+  .reveal-delay-3{ transition-delay:.36s; }
+  .reveal-delay-4{ transition-delay:.48s; }
+
+  /* Full stagger on scroll reveal across every row (3) — generic
+     selector already applies to grow1/grow2/grow3 and cine-grid alike */
+  .cine-grid .cine-card:nth-child(2){ transition-delay:.08s; }
+  .cine-grid .cine-card:nth-child(3){ transition-delay:.16s; }
+
+  /* Footer reveal (15) */
+  .footer-grid.reveal > div:nth-child(2){ transition-delay:.08s; }
+  .footer-grid.reveal > div:nth-child(3){ transition-delay:.16s; }
+  .footer-grid.reveal > div:nth-child(4){ transition-delay:.24s; }
+  .foot-bottom.reveal{ transition-delay:.1s; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    body{ opacity:1; transition:none; }
+    .tile .ph img{ opacity:1; transform:none; transition:none; }
+    .tile:hover .ph img,
+    .tile:focus-within .ph img{ transform:none; }
+    .tile.overlay .cap{ opacity:1; transform:none; transition:none; }
+    .tile, .cat-card, .cine-card{ transition:none; }
+    .tile:active, .cat-card:active, .cine-card:active{ transform:none; }
+    .cine-card:hover{ transform:none; box-shadow:none; }
+    .cine-card .ph img{ opacity:1; transform:none; }
+    .video-btn{ animation:none; }
+    .cine-card .ph video{ transition:opacity .2s ease; transform:none; }
+    .cta-heading .line{ opacity:1; transform:none; transition:none; }
+    .cta-buttons.reveal .btn{ opacity:1; transform:none; transition:none; }
+    .mobile-nav li{ opacity:1; transform:none; transition:none; }
+    nav ul li a::after{ transition:none; }
+    .cine-text{ opacity:1; transform:none; transition:none; }
+    .reveal-delay-1, .reveal-delay-2, .reveal-delay-3, .reveal-delay-4{ transition-delay:0s; }
+    .tile .ph:not(.ph-loaded), .cine-card .ph:not(.ph-loaded){ animation:none; }
+    .cat-gallery{ transform:none; transition:opacity .2s ease; }
+    .cat-view{ animation:none; }
+  }
+
+  /* ============ CINEMATIC SECTION ============ */
+  .cinematic{ background:var(--bg); padding:80px 0 90px; }
+  .cinematic-head{ padding-bottom:50px; }
+  .cinematic-head h2{ font-size:54px; font-style:italic; }
+
+  .cine-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:30px;
+    row-gap:46px;
+    align-items:start;
+  }
+
+  .cine-card:nth-child(3n+2){ margin-top:86px; }
+
+  /* Hover lift (5) */
+  .cine-card{
+    transition:transform .3s ease, box-shadow .3s ease;
+    border-radius:4px;
+  }
+
+  .cine-card:hover,
+  .cine-card:focus-within{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+  }
+
+  .cine-card:active{
+    transform:scale(.98);
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+  }
+
+  .cine-card .ph{
+    aspect-ratio:16/9;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+    background:#141412;
+  }
+
+  .cine-card .ph:not(.ph-loaded){
+    background-image:linear-gradient(100deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 70%);
+    background-size:200% 100%;
+    animation:phShimmer 1.6s ease-in-out infinite;
+  }
+
+  /* Image is the base layer; video sits on top and only becomes visible
+     once playback actually starts. Poster image also gets load fade-in (4)
+     plus the same subtle scale-settle used on gallery tiles. */
+  .cine-card .ph img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0;
+    transform:scale(.97);
+    transition:opacity .5s ease, transform .5s cubic-bezier(.16,1,.3,1);
+  }
+
+  .cine-card .ph img.img-loaded{ opacity:1; transform:scale(1); }
+
+  .cine-card .ph video{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0;
+    transform:scale(1.02);
+    transition:opacity .35s ease, transform .5s ease;
+  }
+
+  /* Video scale-in on play (7) */
+  .cine-card .ph.is-playing video{ opacity:1; transform:scale(1); }
+  .cine-card .ph.is-playing img.img-loaded{ opacity:0; }
+
+  /* Portrait-shot footage (housewarming, birthday, haldi): each clip has
+     its own native aspect ratio, so a single fixed box doesn't fit all
+     three without either bars or cropping. portfolio.js measures the
+     real video/image dimensions and sets this box's aspect-ratio to
+     match exactly, so the frame fills the card with no bars and no crop. */
+  .cine-card .ph.is-portrait{
+    background:#0a0a09;
+  }
+
+  .cine-card .ph.is-portrait img,
+  .cine-card .ph.is-portrait video{
+    object-fit:cover;
+  }
+
+  .cine-card .cat{
+    font-size:10.5px;
+    letter-spacing:1.5px;
+    color:var(--accent-khaki);
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+
+  .cine-card h3{ font-size:22px; font-weight:500; }
+
+  /* Cine-card title text reveals a beat after the card/image itself,
+     once the parent card has scrolled into view (no extra JS needed —
+     it rides on the .cine-card's own .is-visible state). */
+  .cine-text{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .55s ease .15s, transform .55s ease .15s;
+  }
+
+  .cine-card.is-visible .cine-text{
+    opacity:1;
+    transform:none;
+  }
+
+  /* Video play/pause control */
+  .video-btn{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:54px; height:54px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.7);
+    background:rgba(22,22,20,.55);
+    backdrop-filter:blur(2px);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:2;
+    padding:0;
+    opacity:1;
+    transition:background .2s ease, transform .2s ease, opacity .2s ease;
+    animation:videoBtnPulse 2.4s ease-in-out infinite;
+  }
+
+  .video-btn:hover{ background:rgba(22,22,20,.8); transform:translate(-50%,-50%) scale(1.08); }
+
+  .video-btn:focus-visible{
+    outline:2px solid #fff;
+    outline-offset:3px;
+  }
+
+  /* Idle play-button pulse (6) — paused only, stops once playing */
+  @keyframes videoBtnPulse{
+    0%   { box-shadow:0 0 0 0 rgba(255,255,255,.45); }
+    70%  { box-shadow:0 0 0 14px rgba(255,255,255,0); }
+    100% { box-shadow:0 0 0 0 rgba(255,255,255,0); }
+  }
+
+  .ph.is-playing .video-btn{ animation:none; }
+
+  /* Play/pause icon cross-transition (8) */
+  .video-btn svg{
+    width:16px;
+    height:16px;
+    display:block;
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%) scale(1);
+    opacity:1;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+
+  .video-btn .icon-play{ margin-left:2px; } /* optical centering of the triangle */
+  .video-btn .icon-pause{ opacity:0; transform:translate(-50%,-50%) scale(.6); }
+
+  .ph.is-playing .video-btn .icon-play{ opacity:0; transform:translate(-50%,-50%) scale(.6); margin-left:0; }
+  .ph.is-playing .video-btn .icon-pause{ opacity:1; transform:translate(-50%,-50%) scale(1); }
+
+  /* Stays dimly visible (not fully hidden) once playing, since hover/
+     focus never fire on a touchscreen — without this, tapping play on
+     mobile has no way to reach pause again until the card scrolls out
+     of view and back. Hover/focus still bring it to full opacity. */
+  .ph.is-playing .video-btn{ opacity:.45; }
+  .ph:hover .video-btn,
+  .ph:focus-within .video-btn{ opacity:1; }
+
+  /* ============ NAVIGATION UNDERLINE (11) ============ */
+  nav ul li a{
+    position:relative;
+  }
+
+  nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    right:50%;
+    bottom:-4px;
+    height:1px;
+    background:currentColor;
+    transition:left .3s ease, right .3s ease;
+  }
+
+  nav ul li a:hover::after,
+  nav ul li a:focus-visible::after{
+    left:0;
+    right:0;
+  }
+
+  /* ============ MOBILE MENU STAGGER (12) ============ */
+  .mobile-nav li{
+    opacity:0;
+    transform:translateY(-8px);
+    transition:opacity .35s ease, transform .35s ease;
+  }
+
+  .mobile-nav.menu-animate li{
+    opacity:1;
+    transform:none;
+  }
+
+  .mobile-nav.menu-animate li:nth-child(1){ transition-delay:.04s; }
+  .mobile-nav.menu-animate li:nth-child(2){ transition-delay:.08s; }
+  .mobile-nav.menu-animate li:nth-child(3){ transition-delay:.12s; }
+  .mobile-nav.menu-animate li:nth-child(4){ transition-delay:.16s; }
+  .mobile-nav.menu-animate li:nth-child(5){ transition-delay:.20s; }
+  .mobile-nav.menu-animate li:nth-child(6){ transition-delay:.24s; }
+
+  /* ============ BUTTONS (9, 10) ============ */
+
+  /* Primary "Book a Shoot" style button — subtle lift, wherever it appears
+     (header/mobile nav). Additive only; base look stays defined in style.css. */
+  header .btn,
+  .mobile-nav .btn{
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+
+  header .btn:hover,
+  .mobile-nav .btn:hover,
+  header .btn:focus-visible,
+  .mobile-nav .btn:focus-visible{
+    transform:scale(1.04);
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+  }
+
+  /* CTA buttons — fill fades out to a transparent/outline state on hover */
+  .cta-buttons .btn,
+  .cta-buttons .btn-outline{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:220px;
+    padding:18px 20px;
+    background:#fff;
+    color:#161614;
+    border:1px solid #fff;
+    font-size:12px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background-color .45s ease, color .45s ease, border-color .45s ease;
+  }
+
+  .cta-buttons .btn:hover,
+  .cta-buttons .btn-outline:hover,
+  .cta-buttons .btn:focus-visible,
+  .cta-buttons .btn-outline:focus-visible{
+    background:transparent;
+    color:#fff;
+    border-color:#fff;
+  }
+
+  .cta-buttons .btn:focus-visible,
+  .cta-buttons .btn-outline:focus-visible{
+    outline:2px solid #fff;
+    outline-offset:2px;
+  }
+
+  /* ============ CTA ============ */
+  .cta-section{ padding:60px 0 120px; }
+
+  .cta-section .container{
+    background:#1a1a18;
+    border-radius:20px;
+    padding:100px 40px;
+    text-align:center;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+  /* Heading line reveal (13) — each line animates independently once
+     the .cta-heading itself (also a .reveal target) enters view */
+  .cta-heading{
+    font-size:48px;
+    font-style:italic;
+    line-height:1.3;
+    color:#fff;
+    margin-bottom:24px;
+  }
+
+  .cta-heading .line{
+    display:block;
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+
+  .cta-heading.is-visible .line{
+    opacity:1;
+    transform:none;
+  }
+
+  .cta-heading.is-visible .line:nth-child(1){ transition-delay:.05s; }
+  .cta-heading.is-visible .line:nth-child(2){ transition-delay:.2s; }
+
+  .cta-section p{
+    font-size:15px;
+    color:rgba(255,255,255,.55);
+    line-height:1.7;
+    max-width:520px;
+    margin:0 auto 40px;
+  }
+
+  .cta-buttons{ display:flex; justify-content:center; gap:18px; }
+
+  /* Button stagger (14) */
+  .cta-buttons.reveal .btn,
+  .cta-buttons.reveal .btn-outline{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease, color .45s ease;
+  }
+
+  .cta-buttons.reveal.is-visible .btn,
+  .cta-buttons.reveal.is-visible .btn-outline{
+    opacity:1;
+    transform:none;
+  }
+
+  .cta-buttons.reveal.is-visible .btn:nth-child(2),
+  .cta-buttons.reveal.is-visible .btn-outline:nth-child(2){
+    transition-delay:.12s;
+  }
+
+  /* ============ FOCUS-VISIBLE PARITY (17) ============ */
+  .tile:focus-within .ph{ outline:2px solid var(--accent-khaki, #9c8350); outline-offset:2px; }
+  a:focus-visible,
+  button:focus-visible{
+    outline:2px solid var(--accent-khaki, #9c8350);
+    outline-offset:3px;
+  }
+
+  /* ============ RESPONSIVE (page-specific only) ============ */
+  @media(max-width:900px){
+    .gallery-head-top{ flex-direction:column; align-items:flex-start; }
+    .gallery-head-top h1{ font-size:42px; }
+  }
+
+  /* Cinematic/video grid keeps the desktop 3-column layout on
+     tablet — only the gap tightens so the columns don't get too
+     cramped. Phones get a dedicated single-column layout further
+     down (max-width:600px) since 3-up is too small to read there. */
+  @media(max-width:900px){
+    .cine-grid{ gap:16px; row-gap:32px; }
+  }
+
+  @media(max-width:900px){
+    .cta-section{ padding:50px 0 90px; }
+    .cta-section .container{
+      box-sizing:border-box !important;
+      width:calc(100% - 48px) !important;
+      max-width:calc(100% - 48px) !important;
+      margin:0 auto !important;
+      padding:70px 32px !important;
+    }
+    .cta-heading{ font-size:36px; margin-bottom:20px; }
+    .cta-section p{ font-size:14px; margin-bottom:32px; }
+    .cta-buttons .btn,
+    .cta-buttons .btn-outline{ width:190px; padding:16px 16px; }
+  }
+
+  @media(max-width:600px){
+    .gallery-head{ padding:40px 0 28px; }
+    .gallery-head-top h1{ font-size:32px; }
+    .gallery-head-top p{ max-width:100%; font-size:13px; }
+
+    /* Cinematic cards go full width, one per row, so posters, titles
+       and the play control are actually legible on a phone screen. */
+    .cine-grid{ grid-template-columns:1fr; gap:0; row-gap:28px; }
+    .cine-card:nth-child(3n+2){ margin-top:0; }
+    .cine-card h3{ font-size:18px; }
+    .cine-card .cat{ font-size:10px; }
+    .video-btn{ width:48px; height:48px; }
+    .video-btn svg{ width:16px; height:16px; }
+
+    .cinematic{ padding:56px 0 60px; }
+    .cinematic-head{ padding-bottom:28px; }
+    .cinematic-head h2{ font-size:32px; }
+
+    .cta-section{ padding:40px 0 70px; }
+    .cta-section .container{
+      box-sizing:border-box !important;
+      width:calc(100% - 32px) !important;
+      max-width:calc(100% - 32px) !important;
+      margin:0 auto !important;
+      padding:60px 28px !important;
+      border-radius:24px !important;
+    }
+    .cta-heading{ font-size:32px; margin-bottom:20px; }
+    .cta-section p{ font-size:14px; line-height:1.6; margin-bottom:32px; max-width:100%; }
+    .cta-buttons{ flex-direction:column; gap:16px; align-items:stretch; }
+    .cta-buttons .btn,
+    .cta-buttons .btn-outline{
+      width:100%;
+      padding:18px 16px;
+      text-decoration:underline;
+      text-underline-offset:4px;
+    }
+  }
+
+  /* Small phones (down to 340px). Gallery rows keep the hero + pair
+     layout from the 600px breakpoint (just tighter gaps); cinematic
+     cards stay single-column and full width so they remain legible
+     rather than shrinking back down to a cramped multi-column grid. */
+  @media(max-width:400px){
+    .gallery-head-top h1{ font-size:26px; }
+    .gallery-head-top p{ font-size:12px; line-height:1.6; }
+
+    .category-grid{ gap:10px; padding-bottom:44px; }
+    .tile .cap{ font-size:9.5px; }
+
+    .cinematic-head h2{ font-size:24px; }
+    .cine-grid{ row-gap:16px; }
+    .cine-card .ph{ margin-bottom:8px; }
+    .cine-card h3{ font-size:15px; line-height:1.25; }
+    .cine-card .cat{ font-size:8.5px; letter-spacing:.8px; margin-bottom:4px; }
+
+    .video-btn{ width:40px; height:40px; }
+    .video-btn svg{ width:14px; height:14px; }
+
+    .cta-section{ padding:32px 0 50px; }
+    .cta-section .container{
+      box-sizing:border-box !important;
+      width:calc(100% - 24px) !important;
+      max-width:calc(100% - 24px) !important;
+      margin:0 auto !important;
+      padding:44px 20px !important;
+      border-radius:20px !important;
+    }
+    .cta-heading{ font-size:24px; margin-bottom:16px; }
+    .cta-section p{ font-size:13px; margin-bottom:26px; }
+    .cta-buttons{ gap:12px; }
+    .cta-buttons .btn,
+    .cta-buttons .btn-outline{ width:100%; max-width:100%; font-size:11px; padding:16px 14px; }
+  }
