@@ -1,8 +1,14 @@
 {
   "name": "Birthdays",
   "images": [
-    "birthdays/birthday1.webp","birthdays/birthday2.webp","birthdays/birthday3.webp","birthdays/birthday4.webp",
-    "birthdays/birthday5.webp","birthdays/birthday6.webp","birthdays/birthday7.webp","birthdays/birthday8.webp",
-    "birthdays/birthday9.webp"
+    "/birthdays/birthday1.webp",
+    "/birthdays/birthday2.webp",
+    "/birthdays/birthday3.webp",
+    "/birthdays/birthday4.webp",
+    "/birthdays/birthday5.webp",
+    "/birthdays/birthday6.webp",
+    "/birthdays/birthday7.webp",
+    "/birthdays/birthday8.webp",
+    "/birthdays/birthday9.webp"
   ]
 }
