@@ -1,8 +1,15 @@
 {
   "name": "Solo Portraits",
   "images": [
-    "single/solo1.webp","single/solo2.webp","single/solo3.webp","single/solo4.webp",
-    "single/solo5.webp","single/solo6.webp","single/solo7.webp","single/solo8.webp",
-    "single/solo9.webp","single/solo10.webp"
+    "/single/solo1.webp",
+    "/single/solo2.webp",
+    "/single/solo3.webp",
+    "/single/solo4.webp",
+    "/single/solo5.webp",
+    "/single/solo6.webp",
+    "/single/solo7.webp",
+    "/single/solo8.webp",
+    "/single/solo9.webp",
+    "/single/solo10.webp"
   ]
 }
