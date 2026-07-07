@@ -1,8 +1,15 @@
 {
   "name": "Pre-Wedding",
   "images": [
-    "prewedding/couple1.webp","prewedding/couple2.webp","prewedding/couple3.webp","prewedding/couple4.webp",
-    "prewedding/couple5.webp","prewedding/couple6.webp","prewedding/couple7.webp","prewedding/couple8.webp",
-    "prewedding/couple9.webp","prewedding/couple10.webp"
+    "/prewedding/couple1.webp",
+    "/prewedding/couple2.webp",
+    "/prewedding/couple3.webp",
+    "/prewedding/couple4.webp",
+    "/prewedding/couple5.webp",
+    "/prewedding/couple6.webp",
+    "/prewedding/couple7.webp",
+    "/prewedding/couple8.webp",
+    "/prewedding/couple9.webp",
+    "/prewedding/couple10.webp"
   ]
 }
