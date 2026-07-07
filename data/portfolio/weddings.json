@@ -1,15 +1,15 @@
 {
   "name": "Weddings",
   "images": [
-    "wedding/wedding2.webp",
-    "wedding/wedding3.webp",
-    "wedding/wedding4.webp",
-    "wedding/wedding5.webp",
-    "wedding/wedding6.webp",
-    "wedding/wedding7.webp",
-    "wedding/wedding8.webp",
-    "wedding/wedding9.webp",
-    "wedding/wedding10.webp",
-    "/service/haldi.jpg"
+    "/wedding/wedding1.webp",
+    "/wedding/wedding2.webp",
+    "/wedding/wedding3.webp",
+    "/wedding/wedding4.webp",
+    "/wedding/wedding5.webp",
+    "/wedding/wedding6.webp",
+    "/wedding/wedding7.webp",
+    "/wedding/wedding8.webp",
+    "/wedding/wedding9.webp",
+    "/wedding/wedding10.webp"
   ]
 }
