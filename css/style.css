@@ -222,15 +222,17 @@
    }
    .logo-giri{ color:#2f6fed; }
    .logo-photo{ color:#34d399; }
-   .logo-social{ display:flex; gap:12px; }
+   .logo-social{ display:flex; gap:14px; }
    .logo-social a{
      color:var(--muted);
-     font-size:15px;
+     font-size:20px;
      display:flex;
      align-items:center;
-     transition:color .2s ease;
+     transition:opacity .2s ease;
    }
-   .logo-social a:hover{ color:var(--ink); }
+   .logo-social a[aria-label="Instagram"]{ color:#E1306C; }
+   .logo-social a[aria-label="YouTube"]{ color:#FF0000; }
+   .logo-social a:hover{ opacity:.75; }
    
    nav ul{
      display:flex;
@@ -468,7 +470,7 @@
      header{ padding:14px 0; }
      .logo{ gap:5px; }
      .logo-name{ font-size:17px; }
-     .logo-social a{ font-size:13px; }
+     .logo-social a{ font-size:20px; }
      .nav-toggle{ width:44px; height:44px; }
      .nav-toggle i{ font-size:22px; }
      .mobile-nav{ padding-top:76px; }
@@ -483,7 +485,7 @@
      header{ padding:12px 0; }
      .logo{ gap:4px; }
      .logo-name{ font-size:15px; }
-     .logo-social a{ font-size:12px; }
+     .logo-social a{ font-size:19px; }
      .nav-toggle{ width:40px; height:40px; }
      .nav-toggle i{ font-size:20px; }
      .mobile-nav{ padding-top:68px; }
@@ -503,7 +505,7 @@
      }
      .logo{ gap:4px; }
      .logo-name{ font-size:14px; }
-     .logo-social a{ font-size:11px; }
+     .logo-social a{ font-size:18px; }
      .nav-toggle{ width:38px; height:38px; }
      .nav-toggle i{ font-size:18px; }
      .mobile-nav{ width:min(85%,300px); padding-top:60px; }
