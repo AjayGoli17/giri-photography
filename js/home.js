@@ -6,6 +6,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Homepage services preview: image/name/price are managed by ---------- */
+  /* the client through /admin (Homepage Services Preview section), which edits    */
+  /* data/home-services.json. Fetch that file and drop each card's info into the   */
+  /* matching #home-service-photo-N / -name-N / -price-N elements. If the fetch    */
+  /* fails, the hardcoded values already in index.html stay as a fallback.         */
+  try {
+    fetch('data/home-services.json')
+      .then((res) => res.json())
+      .then((data) => {
+        (data.cards || []).forEach((card) => {
+          const photoEl = document.getElementById('home-service-photo-' + card.id);
+          const nameEl = document.getElementById('home-service-name-' + card.id);
+          const priceEl = document.getElementById('home-service-price-' + card.id);
+          if (photoEl && card.photo) {
+            photoEl.src = card.photo;
+            photoEl.alt = card.name || photoEl.alt;
+          }
+          if (nameEl && card.name) nameEl.textContent = card.name;
+          if (priceEl && card.price) priceEl.textContent = card.price;
+        });
+      })
+      .catch(() => {
+        // data/home-services.json missing or unreachable — keep hardcoded values.
+      });
+  } catch (err) {
+    console.warn('[home.js] services preview fetch skipped:', err);
+  }
+
   /* ---------- Preloader: show "Giri Photography" + a progress bar while ---------- */
   /* the page loads, then fade it out and reveal the rest of the page.            */
   const preloader = document.getElementById('preloader');

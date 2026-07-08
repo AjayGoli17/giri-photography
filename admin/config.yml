@@ -120,6 +120,59 @@ collections:
             field: { label: "Photo", name: "src", widget: "image", media_folder: "/single", public_folder: "/single" }
 
   # ------------------------------------------------------------------
+  # TEAM — the 5 team member cards on team.html. Fixed at exactly 5
+  # entries (min/max) because the page uses a hand-positioned masonry
+  # layout (member-1..member-5 each have their own grid position/size
+  # in team.css) — adding or removing a card would break that layout.
+  # team.js reads this to fill in each card's photo/name/role.
+  # ------------------------------------------------------------------
+  - name: "team"
+    label: "Team"
+    files:
+      - name: "team"
+        label: "Team Members"
+        file: "data/team.json"
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            min: 5
+            max: 5
+            summary: "{{name}} — {{role}}"
+            fields:
+              - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", media_folder: "/team", public_folder: "/team" }
+
+  # ------------------------------------------------------------------
+  # HOMEPAGE SERVICES PREVIEW — the 6 service cards on the homepage
+  # ("Our Services" section on index.html). This is a separate, smaller
+  # preview list from the main Services page — kept independent on
+  # purpose so the two can be edited without needing to match. Fixed
+  # at exactly 6 entries (min/max) to match the existing layout.
+  # home.js reads this to fill in each card's photo/name/price.
+  # ------------------------------------------------------------------
+  - name: "home-services"
+    label: "Homepage Services Preview"
+    files:
+      - name: "home-services"
+        label: "Homepage Cards"
+        file: "data/home-services.json"
+        fields:
+          - label: "Cards"
+            name: "cards"
+            widget: "list"
+            min: 6
+            max: 6
+            summary: "{{name}} — {{price}}"
+            fields:
+              - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+              - { label: "Service Name", name: "name", widget: "string" }
+              - { label: "Price Text", name: "price", widget: "string", hint: "e.g. \"From ₹8,000\" — free text so you can phrase it however you like" }
+              - { label: "Photo", name: "photo", widget: "image", media_folder: "/service", public_folder: "/service" }
+
+  # ------------------------------------------------------------------
   # SERVICE PRICING — a single file holding every service's price.
   # service.js reads this to fill in the ₹ amounts on service.html.
   # ------------------------------------------------------------------

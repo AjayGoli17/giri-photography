@@ -1,0 +1,40 @@
+{
+  "cards": [
+    {
+      "id": "1",
+      "name": "Wedding & Pre-Wedding",
+      "price": "From ₹8,000",
+      "photo": "service/wedding.webp"
+    },
+    {
+      "id": "2",
+      "name": "Maternity Shoot",
+      "price": "From ₹6,500",
+      "photo": "service/maternity.webp"
+    },
+    {
+      "id": "3",
+      "name": "House Warming Ceremony",
+      "price": "From ₹5,000",
+      "photo": "house.webp"
+    },
+    {
+      "id": "4",
+      "name": "Haldi",
+      "price": "From ₹4,000",
+      "photo": "service/haldi.webp"
+    },
+    {
+      "id": "5",
+      "name": "Birthday parties",
+      "price": "From ₹5,500",
+      "photo": "service/birthday.webp"
+    },
+    {
+      "id": "6",
+      "name": "Solo Photography",
+      "price": "From ₹7,000",
+      "photo": "service/solo.webp"
+    }
+  ]
+}

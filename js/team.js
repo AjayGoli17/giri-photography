@@ -12,6 +12,37 @@
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     /* ----------------------------------------------------------------------
+       0. TEAM DATA — name/role/photo are managed by the client through
+       /admin (Team section), which edits data/team.json. Here we just
+       fetch that file and drop each member's info into the matching
+       #team-photo-N / #team-name-N / #team-role-N elements, so the HTML
+       never needs to be touched again to update the team. If the fetch
+       fails for any reason, the hardcoded values already in team.html
+       stay as a fallback.
+       ---------------------------------------------------------------------- */
+    function loadTeamData() {
+        fetch("data/team.json")
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+                (data.members || []).forEach(function (member) {
+                    var photoEl = document.getElementById("team-photo-" + member.id.replace("member-", ""));
+                    var nameEl = document.getElementById("team-name-" + member.id.replace("member-", ""));
+                    var roleEl = document.getElementById("team-role-" + member.id.replace("member-", ""));
+                    if (photoEl && member.photo) {
+                        photoEl.src = member.photo;
+                        photoEl.alt = member.name || photoEl.alt;
+                    }
+                    if (nameEl && member.name) nameEl.textContent = member.name;
+                    if (roleEl && member.role) roleEl.textContent = member.role;
+                });
+            })
+            .catch(function () {
+                // data/team.json missing or unreachable (e.g. local file:// preview) —
+                // keep the hardcoded values already in the HTML.
+            });
+    }
+
+    /* ----------------------------------------------------------------------
        #2 Word-split hero title
        Splits the <h1> text into individual <span class="word"> elements so
        team.css can stagger + blur-reveal each word independently.
@@ -282,6 +313,7 @@
 
     /* ---------------------------------------------------------------------- */
     document.addEventListener("DOMContentLoaded", function () {
+        safeRun(loadTeamData);
         safeRun(splitHeroTitle);
         safeRun(initHeroEntrance);
         safeRun(initParallax);
