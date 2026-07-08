@@ -219,19 +219,17 @@
      font-weight:600;
      letter-spacing:.3px;
      white-space:nowrap;
+     text-transform:uppercase;
    }
-   .logo-giri{ color:#2f6fed; }
-   .logo-photo{ color:#34d399; }
-   .logo-social{ display:flex; gap:14px; }
+   .logo-giri{ color:#000000; }
+   .logo-photo{ color:#1e5631; }
+   .logo-social{ display:flex; align-items:center; gap:14px; }
    .logo-social a{
-     color:var(--muted);
-     font-size:20px;
      display:flex;
      align-items:center;
      transition:opacity .2s ease;
    }
-   .logo-social a[aria-label="Instagram"]{ color:#E1306C; }
-   .logo-social a[aria-label="YouTube"]{ color:#FF0000; }
+   .logo-social a svg{ display:block; }
    .logo-social a:hover{ opacity:.75; }
    
    nav ul{
@@ -452,8 +450,15 @@
      h1{ font-size:40px; }
      h2{ font-size:30px; }
      header{ padding:18px 0; }
-     .logo{ margin-right:0; gap:6px; }
-     .logo-name{ font-size:19px; }
+     /* Single-row mobile header: social icons — centered logo — menu button,
+        all on one line. .logo becomes a transparent wrapper so its two
+        children (logo-social, logo-name) act as direct grid items alongside
+        .nav-toggle. */
+     .header-inner{ display:grid; grid-template-columns:auto 1fr auto; align-items:center; }
+     .logo{ display:contents; margin-right:0; }
+     .logo-social{ order:1; justify-self:start; gap:10px; }
+     .logo-name{ order:2; justify-self:center; font-size:15px; white-space:nowrap; }
+     .nav-toggle{ order:3; justify-self:end; }
      .mobile-nav{ padding-top:88px; }
      .footer-grid{ grid-template-columns:1fr 1fr; gap:28px; }
    }
