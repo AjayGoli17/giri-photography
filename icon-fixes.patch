@@ -1,0 +1,163 @@
+diff --git a/contact.html b/contact.html
+index 9d87ad0..9603597 100644
+--- a/contact.html
++++ b/contact.html
+@@ -22,7 +22,7 @@
+           <span class="logo-giri">Giri</span> <span class="logo-photo">Photography</span>
+         </a>
+         <span class="logo-social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+           <a href="https://www.youtube.com/@giriphotography_official" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+         </span>
+       </div>
+@@ -217,7 +217,7 @@
+         <h4>Giri Photography</h4>
+         <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+         <div class="social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+           <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+           <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+         </div>
+diff --git a/css/style.css b/css/style.css
+index f16cb03..2003bab 100644
+--- a/css/style.css
++++ b/css/style.css
+@@ -222,15 +222,17 @@
+    }
+    .logo-giri{ color:#2f6fed; }
+    .logo-photo{ color:#34d399; }
+-   .logo-social{ display:flex; gap:12px; }
++   .logo-social{ display:flex; gap:14px; }
+    .logo-social a{
+      color:var(--muted);
+-     font-size:15px;
++     font-size:20px;
+      display:flex;
+      align-items:center;
+-     transition:color .2s ease;
++     transition:opacity .2s ease;
+    }
+-   .logo-social a:hover{ color:var(--ink); }
++   .logo-social a[aria-label="Instagram"]{ color:#E1306C; }
++   .logo-social a[aria-label="YouTube"]{ color:#FF0000; }
++   .logo-social a:hover{ opacity:.75; }
+    
+    nav ul{
+      display:flex;
+@@ -468,7 +470,7 @@
+      header{ padding:14px 0; }
+      .logo{ gap:5px; }
+      .logo-name{ font-size:17px; }
+-     .logo-social a{ font-size:13px; }
++     .logo-social a{ font-size:20px; }
+      .nav-toggle{ width:44px; height:44px; }
+      .nav-toggle i{ font-size:22px; }
+      .mobile-nav{ padding-top:76px; }
+@@ -483,7 +485,7 @@
+      header{ padding:12px 0; }
+      .logo{ gap:4px; }
+      .logo-name{ font-size:15px; }
+-     .logo-social a{ font-size:12px; }
++     .logo-social a{ font-size:19px; }
+      .nav-toggle{ width:40px; height:40px; }
+      .nav-toggle i{ font-size:20px; }
+      .mobile-nav{ padding-top:68px; }
+@@ -503,7 +505,7 @@
+      }
+      .logo{ gap:4px; }
+      .logo-name{ font-size:14px; }
+-     .logo-social a{ font-size:11px; }
++     .logo-social a{ font-size:18px; }
+      .nav-toggle{ width:38px; height:38px; }
+      .nav-toggle i{ font-size:18px; }
+      .mobile-nav{ width:min(85%,300px); padding-top:60px; }
+diff --git a/index.html b/index.html
+index c3082e2..82c24d7 100644
+--- a/index.html
++++ b/index.html
+@@ -34,7 +34,7 @@
+         <span class="logo-giri">Giri</span> <span class="logo-photo">Photography</span>
+       </a>
+       <span class="logo-social">
+-        <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
++        <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+         <a href="https://www.youtube.com/@giriphotography_official" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+       </span>
+     </div>
+@@ -214,7 +214,7 @@
+         <h4>Giri Photography</h4>
+         <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+         <div class="social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+           <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+           <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+         </div>
+diff --git a/portfolio.html b/portfolio.html
+index 60bfa9c..a34b24c 100644
+--- a/portfolio.html
++++ b/portfolio.html
+@@ -18,7 +18,7 @@
+           <span class="logo-giri">Giri</span> <span class="logo-photo">Photography</span>
+         </a>
+         <span class="logo-social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+           <a href="https://www.youtube.com/@giriphotography_official" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+         </span>
+       </div>
+@@ -279,7 +279,7 @@
+         <h4 class="reveal">Giri Photography</h4>
+         <p class="reveal reveal-delay-1">A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+         <div class="social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+           <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+           <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+         </div>
+diff --git a/service.html b/service.html
+index e7f6a2d..e6d478c 100644
+--- a/service.html
++++ b/service.html
+@@ -18,7 +18,7 @@
+           <span class="logo-giri">Giri</span> <span class="logo-photo">Photography</span>
+         </a>
+         <span class="logo-social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+           <a href="https://www.youtube.com/@giriphotography_official" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+         </span>
+       </div>
+@@ -216,7 +216,7 @@
+         <h4>Giri Photography</h4>
+         <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+         <div class="social">
+-          <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
++          <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+           <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+           <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+         </div>
+diff --git a/team.html b/team.html
+index f025ea1..27fc9a2 100644
+--- a/team.html
++++ b/team.html
+@@ -18,7 +18,7 @@
+               <span class="logo-giri">Giri</span> <span class="logo-photo">Photography</span>
+             </a>
+             <span class="logo-social">
+-              <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
++              <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+               <a href="https://www.youtube.com/@giriphotography_official" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+             </span>
+           </div>
+@@ -147,7 +147,7 @@
+             <h4>Giri Photography</h4>
+             <p>A studio dedicated to timeless, emotive photography &mdash; weddings, portraits, and editorial work crafted with care.</p>
+             <div class="social">
+-              <a href="https://www.instagram.com/giriphotography_official/" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
++              <a href="https://www.instagram.com/giriphotography_official98?igsh=MWI0Zm41c2Rlb3B0MA==" target="_blank" rel="noopener" aria-label="Instagram"><span><i class="fa-brands fa-instagram"></i></span></a>
+               <a href="#" aria-label="Facebook"><span><i class="fa-brands fa-facebook-f"></i></span></a>
+               <a href="https://wa.me/919848403872" target="_blank" rel="noopener" aria-label="WhatsApp"><span><i class="fa-brands fa-whatsapp"></i></span></a>
+             </div>
