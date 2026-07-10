@@ -229,7 +229,9 @@
      align-items:center;
      transition:opacity .2s ease;
    }
-   .logo-social a svg{ display:block; }
+   .logo-social a i{ display:block; font-size:20px; line-height:1; }
+   .logo-social a .yt-icon{ color:#FF0000; }
+   .logo-social a .ig-icon{ background:linear-gradient(45deg,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%); -webkit-background-clip:text; background-clip:text; color:transparent; }
    .logo-social a:hover{ opacity:.75; }
    
    nav ul{
