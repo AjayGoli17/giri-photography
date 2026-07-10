@@ -1,0 +1,57 @@
+diff --git a/robots.txt b/robots.txt
+new file mode 100644
+index 0000000..250edd8
+--- /dev/null
++++ b/robots.txt
+@@ -0,0 +1,6 @@
++User-agent: *
++Allow: /
++
++Disallow: /admin/
++
++Sitemap: https://giriphotography.com/sitemap.xml
+diff --git a/sitemap.xml b/sitemap.xml
+new file mode 100644
+index 0000000..dda2c9b
+--- /dev/null
++++ b/sitemap.xml
+@@ -0,0 +1,39 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
++
++  <url>
++    <loc>https://giriphotography.com/</loc>
++    <lastmod>2026-07-10</lastmod>
++    <changefreq>weekly</changefreq>
++    <priority>1.0</priority>
++  </url>
++
++  <url>
++    <loc>https://giriphotography.com/service.html</loc>
++    <lastmod>2026-07-10</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://giriphotography.com/portfolio.html</loc>
++    <lastmod>2026-07-10</lastmod>
++    <changefreq>weekly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://giriphotography.com/team.html</loc>
++    <lastmod>2026-07-10</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.6</priority>
++  </url>
++
++  <url>
++    <loc>https://giriphotography.com/contact.html</loc>
++    <lastmod>2026-07-10</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.6</priority>
++  </url>
++
++</urlset>
