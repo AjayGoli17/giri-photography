@@ -13,19 +13,24 @@
      fixed box size for all of them (which causes letterbox bars
      on some), measure the real dimensions and set the card's
      aspect-ratio to match exactly. Result: no bars, no cropping.
+
+     Exposed as a function (rather than a one-shot IIFE) because
+     the cinematic cards are now fetched from data/cinematic.json
+     and inserted into the DOM after this script first runs — so
+     it needs to be callable again once those cards exist.
      ========================================================= */
-     (function(){
-      var portraitPhs = document.querySelectorAll('.cine-card .ph.is-portrait');
-  
+    function setupCinePortraitSizing(rootEl){
+      var portraitPhs = (rootEl || document).querySelectorAll('.cine-card .ph.is-portrait');
+
       portraitPhs.forEach(function(ph){
         var video = ph.querySelector('video');
         var img = ph.querySelector('img');
         if(!video) return;
-  
+
         function applyRatio(w, h){
           if(w && h) ph.style.aspectRatio = w + ' / ' + h;
         }
-  
+
         // Poster image's natural size as an immediate best guess
         // (correct before the video itself has finished loading).
         if(img){
@@ -37,7 +42,7 @@
             });
           }
         }
-  
+
         // Once real video metadata is available, correct to the
         // video's exact dimensions (this is the authoritative shape).
         if(video.readyState >= 1 && video.videoWidth){
@@ -48,20 +53,26 @@
           });
         }
       });
-    })();
-  
-     (function(){
-      var phEls = document.querySelectorAll('.cine-card .ph');
-      var allVideos = [];
-    
+    }
+
+    /* allCineVideos lives outside setupCineVideoControls so that
+       "pause every other video" keeps working correctly across
+       every card, even though the cards are now built in a single
+       batch after data/cinematic.json loads (rather than being
+       hardcoded markup present from the start). */
+    var allCineVideos = [];
+
+    function setupCineVideoControls(rootEl){
+      var phEls = (rootEl || document).querySelectorAll('.cine-card .ph');
+
       phEls.forEach(function(ph){
         var video = ph.querySelector('video');
         var btn = ph.querySelector('.video-btn');
-        if(!video || !btn) return;
-        allVideos.push(video);
-    
+        if(!video || !btn || allCineVideos.indexOf(video) !== -1) return;
+        allCineVideos.push(video);
+
         function pauseOthers(){
-          allVideos.forEach(function(v){
+          allCineVideos.forEach(function(v){
             if(v !== video && !v.paused){
               v.pause();
               var otherPh = v.closest('.ph');
@@ -69,7 +80,7 @@
             }
           });
         }
-    
+
         btn.addEventListener('click', function(e){
           e.stopPropagation();
           if(video.paused){
@@ -84,11 +95,90 @@
             ph.classList.remove('is-playing');
           }
         });
-    
+
         video.addEventListener('ended', function(){
           ph.classList.add('is-playing');
         });
       });
+    }
+
+    /* =========================================================
+       Cinematic Stories — video reel cards, now loaded from
+       data/cinematic.json instead of being hardcoded in
+       portfolio.html. The admin panel (/admin) edits this file
+       directly, so the client can add, delete or reorder video
+       cards freely, independent of the photo categories above.
+       ========================================================= */
+    (function(){
+      var cineGrid = document.getElementById('cineGrid');
+      if(!cineGrid) return;
+
+      fetch('data/cinematic.json')
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+          var videos = (data && data.videos) || [];
+          if(!videos.length){
+            cineGrid.innerHTML = '<div class="gallery-loading">No videos added yet.</div>';
+            return;
+          }
+
+          var html = videos.map(function(v){
+            var portraitClass = v.portrait ? ' is-portrait' : '';
+            return (
+              '<div class="cine-card reveal">' +
+                '<div class="ph' + portraitClass + '">' +
+                  '<img src="' + v.poster + '" alt="' + v.title + ' poster">' +
+                  '<video muted loop playsinline preload="metadata" poster="' + v.poster + '">' +
+                    '<source src="' + v.video + '" type="video/mp4">' +
+                  '</video>' +
+                  '<button class="video-btn" type="button" aria-label="Play video">' +
+                    '<svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>' +
+                    '<svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>' +
+                  '</button>' +
+                '</div>' +
+                '<div class="cine-text">' +
+                  '<div class="cat">' + v.category + '</div>' +
+                  '<h3>' + v.title + '</h3>' +
+                '</div>' +
+              '</div>'
+            );
+          }).join('');
+
+          cineGrid.innerHTML = html;
+
+          var newCards = cineGrid.querySelectorAll('.cine-card');
+
+          // Reveal-on-scroll for the freshly-inserted cards, each
+          // animating independently (group size of 1).
+          if(window.revealObserveGroups){
+            window.revealObserveGroups(Array.prototype.slice.call(newCards), 1);
+          } else {
+            newCards.forEach(function(c){ c.classList.add('is-visible'); });
+          }
+
+          // Poster image fade-in, matching the existing gallery/tile behavior.
+          newCards.forEach(function(card){
+            var img = card.querySelector('.ph img');
+            if(!img) return;
+            function markLoaded(){
+              img.classList.add('img-loaded');
+              var ph = img.closest('.ph');
+              if(ph) ph.classList.add('ph-loaded');
+            }
+            if(img.complete && img.naturalWidth > 0){
+              markLoaded();
+            } else {
+              img.addEventListener('load', markLoaded);
+              img.addEventListener('error', markLoaded);
+            }
+          });
+
+          setupCinePortraitSizing(cineGrid);
+          setupCineVideoControls(cineGrid);
+        })
+        .catch(function(){
+          cineGrid.innerHTML = '<div class="gallery-loading">Videos could not be loaded.</div>';
+        });
     })();
     
     /* =========================================================

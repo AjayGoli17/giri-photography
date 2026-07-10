@@ -173,6 +173,31 @@ collections:
               - { label: "Photo", name: "photo", widget: "image", media_folder: "/service", public_folder: "/service" }
 
   # ------------------------------------------------------------------
+  # CINEMATIC STORIES — the video-reel cards on the Portfolio page,
+  # kept separate from the photo categories above. Not fixed at any
+  # count — the client can add, delete or reorder video cards freely.
+  # portfolio.js fetches this at runtime to build the video grid.
+  # ------------------------------------------------------------------
+  - name: "cinematic"
+    label: "Cinematic Stories (Videos)"
+    files:
+      - name: "cinematic"
+        label: "Video Reels"
+        file: "data/cinematic.json"
+        fields:
+          - label: "Video Reels"
+            name: "videos"
+            widget: "list"
+            summary: "{{title}} — {{category}}"
+            fields:
+              - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+              - { label: "Category Label", name: "category", widget: "string", hint: "Small label above the title, e.g. \"Cinematic Story\"" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Poster Image", name: "poster", widget: "image", media_folder: "/", public_folder: "/", hint: "Shown before the video plays" }
+              - { label: "Video File", name: "video", widget: "file", media_folder: "/", public_folder: "/", hint: "Upload an .mp4 video file" }
+              - { label: "Portrait Orientation?", name: "portrait", widget: "boolean", default: false, hint: "Turn on if this video is vertical/portrait rather than widescreen" }
+
+  # ------------------------------------------------------------------
   # SERVICE PRICING — a single file holding every service's price.
   # service.js reads this to fill in the ₹ amounts on service.html.
   # ------------------------------------------------------------------
