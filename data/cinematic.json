@@ -45,7 +45,7 @@
       "category": "Editorial Motion",
       "title": "Haldi Ceremony",
       "poster": "service/haldi.webp",
-      "video": "/cinematic/wedding.mp4",
+      "video": "/cinematic/.gitkeep",
       "portrait": true
     }
   ]
