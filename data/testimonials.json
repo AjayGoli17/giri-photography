@@ -1,0 +1,29 @@
+{
+  "testimonials": [
+    {
+      "id": "t1",
+      "text": "Giri and his team made us feel so comfortable throughout our wedding shoot. The photos came out beautiful, we still look at them every week.",
+      "name": "Sowmya & Ravi"
+    },
+    {
+      "id": "t2",
+      "text": "We booked them for our daughter's haldi function and the pictures turned out amazing. Very professional and always on time.",
+      "name": "Lakshmi Reddy"
+    },
+    {
+      "id": "t3",
+      "text": "Best decision we made was choosing Giri Photography for our maternity shoot. They made me feel confident and the results were stunning.",
+      "name": "Anitha"
+    },
+    {
+      "id": "t4",
+      "text": "From the engagement to the wedding day, they covered everything so well. Every family member loved the final album.",
+      "name": "Kiran & Divya"
+    },
+    {
+      "id": "t5",
+      "text": "My son's birthday photos were so full of life and colour. They captured moments we didn't even notice happening.",
+      "name": "Mahesh"
+    }
+  ]
+}

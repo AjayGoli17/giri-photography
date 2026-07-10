@@ -209,10 +209,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---------- Quote carousel ---------- */
-  const quotes = [
-    { text: 'The studio has a unique ability to capture the soul of a garment. Their work isn\u2019t just photography; it\u2019s high art that communicates prestige and quiet luxury.', cite: 'Creative Director, Vogue' },
-    { text: 'Every frame felt intentional. It didn\u2019t just document our wedding day, it told the story we\u2019ll want to remember in twenty years.', cite: 'Priya & Arjun, Clients' },
-    { text: 'Working with this team on our editorial shoot was effortless. They understood the brief instantly and elevated it further.', cite: 'Art Director, Elle India' }
+  // Testimonials are managed by the client through /admin (Testimonials
+  // section), which edits data/testimonials.json. We fetch that file and
+  // build the carousel from it. The array below is only a fallback used
+  // if the fetch fails (e.g. file missing/offline), so the section never
+  // renders empty.
+  let quotes = [
+    { text: 'Giri and his team made us feel so comfortable throughout our wedding shoot. The photos came out beautiful, we still look at them every week.', cite: 'Sowmya & Ravi' },
+    { text: 'We booked them for our daughter\u2019s haldi function and the pictures turned out amazing. Very professional and always on time.', cite: 'Lakshmi Reddy' },
+    { text: 'Best decision we made was choosing Giri Photography for our maternity shoot. They made me feel confident and the results were stunning.', cite: 'Anitha' },
+    { text: 'From the engagement to the wedding day, they covered everything so well. Every family member loved the final album.', cite: 'Kiran & Divya' },
+    { text: 'My son\u2019s birthday photos were so full of life and colour. They captured moments we didn\u2019t even notice happening.', cite: 'Mahesh' }
   ];
 
   let quoteIndex = 0;
@@ -258,8 +265,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderQuote(1);
   }
 
-  if (quoteEl && citeEl && quotes.length > 1) {
+  function startQuoteCarousel() {
+    if (!quoteEl || !citeEl || quotes.length < 1) return;
+
+    // Paint the first testimonial immediately (renderQuote() assumes a
+    // transition out of an existing quote, so set the initial text directly).
+    quoteIndex = 0;
+    quoteEl.textContent = `\u201C${quotes[0].text}\u201D`;
+    citeEl.textContent = `\u2014 ${quotes[0].cite}`;
     renderDots();
+
+    if (quotes.length <= 1) return;
 
     let quoteTimer = setInterval(advanceQuote, QUOTE_INTERVAL);
 
@@ -295,6 +311,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { threshold: 0.4 });
       quoteVisibility.observe(quoteSection);
     }
+  }
+
+  try {
+    fetch('data/testimonials.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const items = (data.testimonials || [])
+          .filter((t) => t && t.text && t.name)
+          .map((t) => ({ text: t.text, cite: t.name }));
+        if (items.length) quotes = items;
+      })
+      .catch(() => {
+        // data/testimonials.json missing or unreachable — keep hardcoded fallback.
+      })
+      .finally(() => {
+        startQuoteCarousel();
+      });
+  } catch (err) {
+    console.warn('[home.js] testimonials fetch skipped:', err);
+    startQuoteCarousel();
   }
 
   /* ---------- Smooth-reveal on scroll (section-level) ---------- */

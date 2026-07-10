@@ -216,3 +216,26 @@ collections:
               - { label: "Internal ID (do not change)", name: "id", widget: "string" }
               - { label: "Service Name", name: "name", widget: "string" }
               - { label: "Price (₹)", name: "price", widget: "number", value_type: "int" }
+
+  # ------------------------------------------------------------------
+  # TESTIMONIALS — the rotating quote carousel on the homepage
+  # (quote-section on index.html). Not fixed at any count — add,
+  # update or delete freely. home.js fetches this at runtime to
+  # build the carousel; the hardcoded quotes in home.js are only a
+  # fallback used if this file can't be reached.
+  # ------------------------------------------------------------------
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "data/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+              - { label: "Testimonial Text", name: "text", widget: "text" }
+              - { label: "Client Name", name: "name", widget: "string", hint: "Shown below the quote, e.g. \"Sowmya & Ravi\"" }
