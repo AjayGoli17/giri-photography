@@ -1,0 +1,15 @@
+diff --git a/admin/config.yml b/admin/config.yml
+index 1869f1d..caedcf1 100644
+--- a/admin/config.yml
++++ b/admin/config.yml
+@@ -193,8 +193,8 @@ collections:
+               - { label: "Internal ID (do not change)", name: "id", widget: "string" }
+               - { label: "Category Label", name: "category", widget: "string", hint: "Small label above the title, e.g. \"Cinematic Story\"" }
+               - { label: "Title", name: "title", widget: "string" }
+-              - { label: "Poster Image", name: "poster", widget: "image", media_folder: "/", public_folder: "/", hint: "Shown before the video plays" }
+-              - { label: "Video File", name: "video", widget: "file", media_folder: "/", public_folder: "/", hint: "Upload an .mp4 video file" }
++              - { label: "Poster Image", name: "poster", widget: "image", media_folder: "/cinematic", public_folder: "/cinematic", hint: "Shown before the video plays" }
++              - { label: "Video File", name: "video", widget: "file", media_folder: "/cinematic", public_folder: "/cinematic", hint: "Upload an .mp4 video file" }
+               - { label: "Portrait Orientation?", name: "portrait", widget: "boolean", default: false, hint: "Turn on if this video is vertical/portrait rather than widescreen" }
+ 
+   # ------------------------------------------------------------------
