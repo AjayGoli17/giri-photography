@@ -1,10 +1,52 @@
 {
   "videos": [
-    { "id": "prewedding-reel", "category": "Anniversary Reel", "title": "Pre-Wedding", "poster": "service/prewedding.webp", "video": "prewedding.mp4", "portrait": false },
-    { "id": "housewarming-reel", "category": "Cinematic Story", "title": "House warming ceremony", "poster": "house.webp", "video": "housewarming.mp4", "portrait": true },
-    { "id": "birthday-reel", "category": "Cinematic Story", "title": "Birthday Celebration", "poster": "service/birthday.webp", "video": "birthday.mp4", "portrait": true },
-    { "id": "dhoti-reel", "category": "Cinematic Story", "title": "Dhoti Ceremony", "poster": "service/dhothi.webp", "video": "dhothi.mp4", "portrait": false },
-    { "id": "engagement-reel", "category": "Anniversary Reel", "title": "Engagement", "poster": "service/engagement.webp", "video": "engagement.mp4", "portrait": false },
-    { "id": "haldi-reel", "category": "Editorial Motion", "title": "Haldi Ceremony", "poster": "service/haldi.webp", "video": "haldi.mp4", "portrait": true }
+    {
+      "id": "prewedding-reel",
+      "category": "Anniversary Reel",
+      "title": "Pre-Wedding",
+      "poster": "service/prewedding.webp",
+      "video": "prewedding.mp4",
+      "portrait": false
+    },
+    {
+      "id": "housewarming-reel",
+      "category": "Cinematic Story",
+      "title": "House warming ceremony",
+      "poster": "house.webp",
+      "video": "housewarming.mp4",
+      "portrait": true
+    },
+    {
+      "id": "birthday-reel",
+      "category": "Cinematic Story",
+      "title": "Birthday Celebration",
+      "poster": "service/birthday.webp",
+      "video": "birthday.mp4",
+      "portrait": true
+    },
+    {
+      "id": "dhoti-reel",
+      "category": "Cinematic Story",
+      "title": "Dhoti Ceremony",
+      "poster": "service/dhothi.webp",
+      "video": "dhothi.mp4",
+      "portrait": false
+    },
+    {
+      "id": "engagement-reel",
+      "category": "Anniversary Reel",
+      "title": "Engagement",
+      "poster": "service/engagement.webp",
+      "video": "engagement.mp4",
+      "portrait": false
+    },
+    {
+      "id": "haldi-reel",
+      "category": "Editorial Motion",
+      "title": "Haldi Ceremony",
+      "poster": "service/haldi.webp",
+      "video": "/cinematic/haldi.mp4",
+      "portrait": true
+    }
   ]
 }
